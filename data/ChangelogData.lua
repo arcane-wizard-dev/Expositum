@@ -8,6 +8,13 @@ EXT.CHANGELOG = {
 		version = version,
 		date = buildDate ~= "" and buildDate or nil,
 		entries = {
+			"Undocumented changes available"
+		}
+	},
+	{
+		version = "v2.22",
+		date = "2026-08-30",
+		entries = {
 			"Minor code adjustments"
 		}
 	},
@@ -74,16 +81,6 @@ EXT.CHANGELOG = {
 		date = "2026-07-06",
 		entries = {
 			"Adapted to the latest version of Arcane Wizard: Library to ensure full compatibility"
-		}
-	},
-	{
-		version = "v2.13",
-		date = "2026-07-04",
-		entries = {
-			"Added: TOC version for patch 12.1.0 [retail]",
-			"Added: TOC version for patch 2.5.6 [burning crusade - classic anniversary edition]",
-			"Removed: TOC version for patch 12.0.5 [retail]",
-			"Minor code adjustments"
 		}
 	}
 }
