@@ -18,6 +18,9 @@ Expositum is a World of Warcraft addon that provides additional information abou
 * Displays the item category (e.g., crafting materials, clothing, etc.).
 * <sup>✨ NEW</sup> Displays the item rarity in its corresponding quality color.
 * Displays the item level.
+* Displays the item ID and maximum stack size, each with an individual toggle.
+* Offers two-column or left-aligned layouts for the additional tooltip information.
+* Offers badge-only, name-only, or combined expansion displays, and an option to hide stack size 1.
 * Supports an account profile and character profiles.
 
 *\* The expansion can only be displayed in Retail.*

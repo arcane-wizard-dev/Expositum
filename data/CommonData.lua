@@ -1,5 +1,16 @@
 local addonName, EXT = ...
 
+EXT.EXPANSION_DISPLAY_OPTIONS = {
+	{ value = "both", label = EXT.Localization["options.tooltip.expansion-display.both"] },
+	{ value = "badge", label = EXT.Localization["options.tooltip.expansion-display.badge"] },
+	{ value = "name", label = EXT.Localization["options.tooltip.expansion-display.name-only"] }
+}
+
+EXT.TOOLTIP_LAYOUT_OPTIONS = {
+	{ value = "columns", label = EXT.Localization["options.tooltip.layout.columns"] },
+	{ value = "left", label = EXT.Localization["options.tooltip.layout.left"] }
+}
+
 local expansionBadgePath = "Interface\\AddOns\\" .. addonName .. "\\assets\\expansion-badges\\"
 
 local function GetLocalizedExpansionName(expansionID, fallback)

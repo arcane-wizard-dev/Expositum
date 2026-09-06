@@ -67,11 +67,15 @@ local function GetTooltipLineState(tooltip, itemLink)
 	return state
 end
 
-local function AddDoubleLine(tooltip, state, lineKey, leftText, rightText)
-	if state.lineKeys[lineKey] then return end
+local function AddItemLine(tooltip, state, entry)
+	if state.lineKeys[entry.key] then return end
 
-	tooltip:AddDoubleLine(leftText, rightText)
-	state.lineKeys[lineKey] = true
+	if EXT.Settings.tooltip["layout"] == "left" then
+		tooltip:AddLine(entry.label .. ": " .. entry.value, NORMAL_FONT_COLOR.r, NORMAL_FONT_COLOR.g, NORMAL_FONT_COLOR.b, true)
+	else
+		tooltip:AddDoubleLine(entry.label, entry.value)
+	end
+	state.lineKeys[entry.key] = true
 end
 
 local function AddBlankLine(tooltip, state)
@@ -91,10 +95,15 @@ end
 
 local function GetExpansionText(expansionID, expansionName)
 	local expansionText = "|cnWHITE_FONT_COLOR:" .. expansionName .. "|r"
+	local displayMode = EXT.Settings.tooltip["expansion-display"]
+	if displayMode == "name" then return expansionText end
+
 	local expansionBadge = EXT.EXPANSION_BADGES[expansionID]
 
 	if expansionBadge and expansionBadge.texture then
-		return ("|T%s:16:32|t %s"):format(expansionBadge.texture, expansionText)
+		local badgeText = ("|T%s:16:32|t"):format(expansionBadge.texture)
+		if displayMode == "badge" then return badgeText end
+		return badgeText .. " " .. expansionText
 	end
 
 	return expansionText
@@ -175,7 +184,8 @@ end
 function Tooltip:ProcessTooltip(tooltip, itemLink)
 	if not itemLink then return end
 
-	local _, _, itemQuality, itemLevel, _, itemType, itemSubType, _, _, _, _, _, _, _, expansionID = C_Item.GetItemInfo(itemLink)
+	local _, _, itemQuality, itemLevel, _, itemType, itemSubType, maxStackSize, _, _, _, _, _, _, expansionID = C_Item.GetItemInfo(itemLink)
+	local itemID = GetItemID(itemLink)
 
 	local expansionName = GetExpansionName(expansionID)
 	local rarityText = GetRarityText(itemQuality)
@@ -183,8 +193,11 @@ function Tooltip:ProcessTooltip(tooltip, itemLink)
 	local showCategory = EXT.Settings.tooltip["category"] and itemType ~= nil
 	local showRarity = EXT.Settings.tooltip["rarity"] and rarityText
 	local showItemLevel = EXT.Settings.tooltip["item-level"] and itemLevel ~= nil
+	local showItemID = EXT.Settings.tooltip["item-id"] and itemID ~= nil
+	local showMaxStackSize = EXT.Settings.tooltip["max-stack-size"] and type(maxStackSize) == "number" and maxStackSize >= 1
+		and (not EXT.Settings.tooltip["hide-single-stack"] or maxStackSize > 1)
 
-	if not (showExpansion or showCategory or showRarity or showItemLevel) then return end
+	if not (showExpansion or showCategory or showRarity or showItemLevel or showItemID or showMaxStackSize) then return end
 
 	local lineState = GetTooltipLineState(tooltip, itemLink)
 
@@ -193,18 +206,26 @@ function Tooltip:ProcessTooltip(tooltip, itemLink)
 	end
 
 	if showExpansion then
-		AddDoubleLine(tooltip, lineState, "expansion", L["tooltip.expansion"], GetExpansionText(expansionID, expansionName))
+		AddItemLine(tooltip, lineState, { key = "expansion", label = L["tooltip.expansion"], value = GetExpansionText(expansionID, expansionName) })
 	end
 
 	if showCategory then
-		AddDoubleLine(tooltip, lineState, "category", L["tooltip.category"], "|cnWHITE_FONT_COLOR:" .. GetCategoryText(itemType, itemSubType) .. "|r")
+		AddItemLine(tooltip, lineState, { key = "category", label = L["tooltip.category"], value = "|cnWHITE_FONT_COLOR:" .. GetCategoryText(itemType, itemSubType) .. "|r" })
 	end
 
 	if showRarity then
-		AddDoubleLine(tooltip, lineState, "rarity", L["tooltip.rarity"], rarityText)
+		AddItemLine(tooltip, lineState, { key = "rarity", label = L["tooltip.rarity"], value = rarityText })
 	end
 
 	if showItemLevel then
-		AddDoubleLine(tooltip, lineState, "item-level", L["tooltip.item-level"], "|cnWHITE_FONT_COLOR:" .. itemLevel .. "|r")
+		AddItemLine(tooltip, lineState, { key = "item-level", label = L["tooltip.item-level"], value = "|cnWHITE_FONT_COLOR:" .. itemLevel .. "|r" })
+	end
+
+	if showItemID then
+		AddItemLine(tooltip, lineState, { key = "item-id", label = L["tooltip.item-id"], value = "|cnWHITE_FONT_COLOR:" .. itemID .. "|r" })
+	end
+
+	if showMaxStackSize then
+		AddItemLine(tooltip, lineState, { key = "max-stack-size", label = L["tooltip.max-stack-size"], value = "|cnWHITE_FONT_COLOR:" .. maxStackSize .. "|r" })
 	end
 end

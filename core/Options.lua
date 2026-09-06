@@ -65,16 +65,56 @@ function Options:Initialize()
 	})
 
 	layout:AddInitializer(CreateSettingsListSectionHeaderInitializer(L["options.tooltip"]))
+	local _, isDisplayExpanded = AWL.Settings:AddExpandableHeader(layout, L["options.tooltip.section.display"])
 
-		-- Expansion Check
+	-- Layout
+	AWL.Settings:AddDropdown(category, {
+		variableTable	= EXT.Settings.tooltip,
+		settingKey		= addonName .. "_layout",
+		variableName	= "layout",
+		name			= L["options.tooltip.layout.name"],
+		tooltip			= L["options.tooltip.layout.tooltip"],
+		default			= "columns",
+		options			= EXT.TOOLTIP_LAYOUT_OPTIONS,
+		shownPredicate	= isDisplayExpanded
+	})
+
+	-- Blank Line
+	AWL.Settings:AddCheckbox(category, {
+		variableTable	= EXT.Settings.tooltip,
+		settingKey		= addonName .. "_blank-line",
+		variableName	= "blank-line",
+		name			= L["options.tooltip.blank-line.name"],
+		tooltip			= L["options.tooltip.blank-line.tooltip"],
+		default			= true,
+		shownPredicate	= isDisplayExpanded
+	})
+
+	local _, isItemInfoExpanded = AWL.Settings:AddExpandableHeader(layout, L["options.tooltip.section.item-info"])
+
+	-- Expansion Check
 	if AWL.GAME_TYPE_MAINLINE then
-		AWL.Settings:AddCheckbox(category, {
+		local expansionInitializer, expansionSetting = AWL.Settings:AddCheckbox(category, {
 			variableTable	= EXT.Settings.tooltip,
 			settingKey		= addonName .. "_expansion",
 			variableName	= "expansion",
 			name			= L["options.tooltip.expansion.name"],
 			tooltip			= L["options.tooltip.expansion.tooltip"],
-			default			= true
+			default			= true,
+			shownPredicate	= isItemInfoExpanded
+		})
+
+		AWL.Settings:AddDropdown(category, {
+			variableTable	= EXT.Settings.tooltip,
+			settingKey		= addonName .. "_expansion-display",
+			variableName	= "expansion-display",
+			name			= L["options.tooltip.expansion-display.name"],
+			tooltip			= L["options.tooltip.expansion-display.tooltip"],
+			default			= "both",
+			options			= EXT.EXPANSION_DISPLAY_OPTIONS,
+			parentInit		= expansionInitializer,
+			parentCondition	= function() return expansionSetting:GetValue() end,
+			shownPredicate	= isItemInfoExpanded
 		})
 	end
 
@@ -85,7 +125,8 @@ function Options:Initialize()
 		variableName	= "category",
 		name			= L["options.tooltip.category.name"],
 		tooltip			= L["options.tooltip.category.tooltip"],
-		default			= true
+		default			= true,
+		shownPredicate	= isItemInfoExpanded
 	})
 
 	-- Rarity
@@ -95,7 +136,8 @@ function Options:Initialize()
 		variableName	= "rarity",
 		name			= L["options.tooltip.rarity.name"],
 		tooltip			= L["options.tooltip.rarity.tooltip"],
-		default			= true
+		default			= true,
+		shownPredicate	= isItemInfoExpanded
 	})
 
 	-- Item Level
@@ -105,17 +147,43 @@ function Options:Initialize()
 		variableName	= "item-level",
 		name			= L["options.tooltip.item-level.name"],
 		tooltip			= L["options.tooltip.item-level.tooltip"],
-		default			= true
+		default			= true,
+		shownPredicate	= isItemInfoExpanded
 	})
 
-	-- Blank Line
+	-- Item ID
 	AWL.Settings:AddCheckbox(category, {
 		variableTable	= EXT.Settings.tooltip,
-		settingKey		= addonName .. "_blank-line",
-		variableName	= "blank-line",
-		name			= L["options.tooltip.blank-line.name"],
-		tooltip			= L["options.tooltip.blank-line.tooltip"],
-		default			= true
+		settingKey		= addonName .. "_item-id",
+		variableName	= "item-id",
+		name			= L["options.tooltip.item-id.name"],
+		tooltip			= L["options.tooltip.item-id.tooltip"],
+		default			= true,
+		shownPredicate	= isItemInfoExpanded
+	})
+
+	-- Maximum Stack Size
+	local stackInitializer, stackSetting = AWL.Settings:AddCheckbox(category, {
+		variableTable	= EXT.Settings.tooltip,
+		settingKey		= addonName .. "_max-stack-size",
+		variableName	= "max-stack-size",
+		name			= L["options.tooltip.max-stack-size.name"],
+		tooltip			= L["options.tooltip.max-stack-size.tooltip"],
+		default			= true,
+		shownPredicate	= isItemInfoExpanded
+	})
+
+	-- Hide Non-stackable Items
+	AWL.Settings:AddCheckbox(category, {
+		variableTable	= EXT.Settings.tooltip,
+		settingKey		= addonName .. "_hide-single-stack",
+		variableName	= "hide-single-stack",
+		name			= L["options.tooltip.hide-single-stack.name"],
+		tooltip			= L["options.tooltip.hide-single-stack.tooltip"],
+		default			= true,
+		parentInit		= stackInitializer,
+		parentCondition	= function() return stackSetting:GetValue() end,
+		shownPredicate	= isItemInfoExpanded
 	})
 
 	-- Profiles Section
