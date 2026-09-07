@@ -8,7 +8,7 @@ Expositum is a World of Warcraft addon that provides additional information abou
 
 > ⚠️ **Important!** This addon requires **Arcane Wizard: Library**. See Installation & Quick Start for installation details.
 
-**Key Feature**
+## Key Feature
 
 **Tooltip Enhancements** - Enriches item tooltips with useful additional information at a glance.
 
