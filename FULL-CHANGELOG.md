@@ -1,3 +1,6 @@
+**v2.24 (2026-09-13)**
+- Updated: GitHub links following the organization rename to 'arcane-wizard-dev'
+
 **v2.23 (2026-09-06)**
 - Added: Option to display the item's numeric ID in the tooltip
 - Added: Option to display the maximum number of items per stack in the tooltip
