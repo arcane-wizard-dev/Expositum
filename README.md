@@ -1,6 +1,6 @@
 # Expositum
 
-[![GitHub Release](https://img.shields.io/github/v/release/wow-addon-dev/Expositum?color=blue&logo=github&cacheSeconds=600)](https://github.com/wow-addon-dev/Expositum/releases) [![GitHub Release Date](https://img.shields.io/github/release-date/wow-addon-dev/Expositum?color=blue&logo=github&cacheSeconds=600)](https://github.com/wow-addon-dev/Expositum/releases)
+[![GitHub Release](https://img.shields.io/github/v/release/arcane-wizard-dev/Expositum?color=blue&logo=github&cacheSeconds=600)](https://github.com/arcane-wizard-dev/Expositum/releases) [![GitHub Release Date](https://img.shields.io/github/release-date/arcane-wizard-dev/Expositum?color=blue&logo=github&cacheSeconds=600)](https://github.com/arcane-wizard-dev/Expositum/releases)
 
 _Reveal an item's origin and purpose._
 
