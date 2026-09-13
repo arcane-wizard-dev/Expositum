@@ -8,6 +8,13 @@ EXT.CHANGELOG = {
 		version = version,
 		date = buildDate ~= "" and buildDate or nil,
 		entries = {
+			"Updated: GitHub links following the organization rename to 'arcane-wizard-dev'"
+		}
+	},
+	{
+		version = "v2.23",
+		date = "2026-09-06",
+		entries = {
 			"Added: Option to display the item's numeric ID in the tooltip",
 			"Added: Option to display the maximum number of items per stack in the tooltip",
 			"Added: Option to choose between two-column and left-aligned additional item information",
@@ -81,13 +88,6 @@ EXT.CHANGELOG = {
 		date = "2026-07-09",
 		entries = {
 			"Minor code adjustments"
-		}
-	},
-	{
-		version = "v2.14",
-		date = "2026-07-06",
-		entries = {
-			"Adapted to the latest version of Arcane Wizard: Library to ensure full compatibility"
 		}
 	}
 }
