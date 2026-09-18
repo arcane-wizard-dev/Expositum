@@ -42,45 +42,49 @@ function Utils:OpenSettings()
 end
 
 function Utils:IsAccountProfile()
-	local characterRealmKey = AWL.Utils:GetCharacterRealmKey()
+	local characterGUID = AWL.Utils:GetCharacterGUID()
 
-	return Expositum_Options_v3.profileKeys[characterRealmKey]["use-account"]
+	return Expositum_Options_v4.profileKeys[characterGUID]["use-account"]
 end
 
 function Utils:OpenSettingsOnLoading()
-	local characterRealmKey = AWL.Utils:GetCharacterRealmKey()
+	local characterGUID = AWL.Utils:GetCharacterGUID()
 
-	if Expositum_Options_v3.profileKeys[characterRealmKey]["open-settings"] then
+	if Expositum_Options_v4.profileKeys[characterGUID]["open-settings"] then
 		if not self:OpenSettings() then
 			return
 		end
 
-		Expositum_Options_v3.profileKeys[characterRealmKey]["open-settings"] = false
+		Expositum_Options_v4.profileKeys[characterGUID]["open-settings"] = false
 	end
 end
 
 function Utils:ToggleProfileMode()
-	local characterRealmKey = AWL.Utils:GetCharacterRealmKey()
+	local characterGUID = AWL.Utils:GetCharacterGUID()
 	local useAccountProfile = self:IsAccountProfile()
 
-	Expositum_Options_v3.profileKeys[characterRealmKey]["use-account"] = not useAccountProfile
-	Expositum_Options_v3.profileKeys[characterRealmKey]["open-settings"] = true
+	Expositum_Options_v4.profileKeys[characterGUID]["use-account"] = not useAccountProfile
+	Expositum_Options_v4.profileKeys[characterGUID]["open-settings"] = true
 end
 
 function Utils:ResetAllCharacterProfiles()
-	local characterRealmKey = AWL.Utils:GetCharacterRealmKey()
+	local characterGUID = AWL.Utils:GetCharacterGUID()
 
-	Expositum_Options_v3.profiles = {}
-	Expositum_Options_v3.profileKeys = {}
+	Expositum_Options_v4.profiles = {}
+	Expositum_Options_v4.profileKeys = {}
 
-	Expositum_Options_v3.profileKeys[characterRealmKey] = {
+	Expositum_Options_v4.profileKeys[characterGUID] = {
 		["use-account"] = true,
 		["open-settings"] = true
 	}
 end
 
 function Utils:InitializeDatabase()
-	local characterRealmKey = AWL.Utils:GetCharacterRealmKey()
+	local characterGUID = AWL.Utils:GetCharacterGUID()
+
+	if not characterGUID then
+		return nil
+	end
 
 	local createdProfile = false
 	local createdProfileKey = false
@@ -94,39 +98,39 @@ function Utils:InitializeDatabase()
 		["tooltip"] = {}
 	}
 
-	if not Expositum_Options_v3 then
-		Expositum_Options_v3 = {
+	if not Expositum_Options_v4 then
+		Expositum_Options_v4 = {
 			["account"] = AWL.Utils:CopyTable(defaults),
 			["profiles"] = {},
 			["profileKeys"] = {}
 		}
 	end
 
-	if not Expositum_Options_v3.profiles[characterRealmKey] then
-		Expositum_Options_v3.profiles[characterRealmKey] = AWL.Utils:CopyTable(defaults)
+	if not Expositum_Options_v4.profiles[characterGUID] then
+		Expositum_Options_v4.profiles[characterGUID] = AWL.Utils:CopyTable(defaults)
 		createdProfile = true
 	end
 
-	if not Expositum_Options_v3.profileKeys[characterRealmKey] then
-		Expositum_Options_v3.profileKeys[characterRealmKey] = {
+	if not Expositum_Options_v4.profileKeys[characterGUID] then
+		Expositum_Options_v4.profileKeys[characterGUID] = {
 			["use-account"] = true,
 			["open-settings"] = false
 		}
 		createdProfileKey = true
 	end
 
-	local useAccountProfile = Expositum_Options_v3.profileKeys[characterRealmKey]["use-account"]
+	local useAccountProfile = Expositum_Options_v4.profileKeys[characterGUID]["use-account"]
 
 	if useAccountProfile then
-		EXT.Settings.general = Expositum_Options_v3.account["general"]
-		EXT.Settings.tooltip = Expositum_Options_v3.account["tooltip"]
+		EXT.Settings.general = Expositum_Options_v4.account["general"]
+		EXT.Settings.tooltip = Expositum_Options_v4.account["tooltip"]
 	else
-		EXT.Settings.general = Expositum_Options_v3.profiles[characterRealmKey]["general"]
-		EXT.Settings.tooltip = Expositum_Options_v3.profiles[characterRealmKey]["tooltip"]
+		EXT.Settings.general = Expositum_Options_v4.profiles[characterGUID]["general"]
+		EXT.Settings.tooltip = Expositum_Options_v4.profiles[characterGUID]["tooltip"]
 	end
 
 	return {
-		characterRealmKey = characterRealmKey,
+		characterGUID = characterGUID,
 		createdProfile = createdProfile,
 		createdProfileKey = createdProfileKey,
 		activeProfile = useAccountProfile and "account" or "character"

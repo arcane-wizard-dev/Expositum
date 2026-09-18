@@ -8,6 +8,9 @@ local Options = EXT.Modules.Options
 local Tooltip = EXT.Modules.Tooltip
 local Utils = EXT.Modules.Utils
 
+-- Variables
+local isInitialized = false
+
 --------------
 --- Frames ---
 --------------
@@ -19,6 +22,8 @@ local ExpositumFrame = CreateFrame("Frame", "Expositum")
 -----------------------
 
 local function SlashCommand(msg)
+	if not isInitialized then return end
+
 	local command = strtrim(msg or "")
 
 	if command == "" then
@@ -39,21 +44,29 @@ function ExpositumFrame:OnEvent(event, ...)
 end
 
 function ExpositumFrame:ADDON_LOADED(_, addOnName)
-	if addOnName == addonName then
-		local dbInit = Utils:InitializeDatabase()
-		Utils:InitializeMinimapButton()
-		Options:Initialize()
+	if addOnName ~= addonName or isInitialized then return end
 
-		Tooltip:Initialize()
+	local dbInit = Utils:InitializeDatabase()
 
-		Utils:OpenSettingsOnLoading()
-
-		Utils:PrintDebug(string.format(
-			"InitializeDatabase: key=%s, createdProfile=%s, createdProfileKey=%s, activeProfile=%s",
-			tostring(dbInit.characterRealmKey), tostring(dbInit.createdProfile), tostring(dbInit.createdProfileKey), tostring(dbInit.activeProfile)
-		))
-		Utils:PrintDebug("Addon fully loaded.")
+	if not dbInit then
+		AWL:GetAddon(addonName):AbortInitialization(self)
+		return
 	end
+
+	Utils:InitializeMinimapButton()
+	Options:Initialize()
+
+	Tooltip:Initialize()
+
+	Utils:OpenSettingsOnLoading()
+
+	isInitialized = true
+
+	Utils:PrintDebug(string.format(
+		"InitializeDatabase: key=%s, createdProfile=%s, createdProfileKey=%s, activeProfile=%s",
+		tostring(dbInit.characterGUID), tostring(dbInit.createdProfile), tostring(dbInit.createdProfileKey), tostring(dbInit.activeProfile)
+	))
+	Utils:PrintDebug("Addon fully loaded.")
 end
 
 ExpositumFrame:RegisterEvent("ADDON_LOADED")
