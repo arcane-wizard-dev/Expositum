@@ -8,6 +8,15 @@ EXT.CHANGELOG = {
 		version = version,
 		date = buildDate ~= "" and buildDate or nil,
 		entries = {
+			"Added: TOC version for patch 1.60.1 [forever]",
+			"Changed: Character profiles now use GUIDs",
+			"Changed: Addon initialization stops if the player identity is unavailable"
+		}
+	},
+	{
+		version = "v2.24",
+		date = "2026-09-13",
+		entries = {
 			"Updated: GitHub links following the organization rename to 'arcane-wizard-dev'"
 		}
 	},
@@ -81,13 +90,6 @@ EXT.CHANGELOG = {
 			"Added: Wago project page button",
 			"Removed: TOC version for patch 5.5.3 [mists of pandaria - classic]",
 			"Removed: TOC version for patch 2.5.5 [burning crusade - classic anniversary edition]"
-		}
-	},
-	{
-		version = "v2.15",
-		date = "2026-07-09",
-		entries = {
-			"Minor code adjustments"
 		}
 	}
 }
