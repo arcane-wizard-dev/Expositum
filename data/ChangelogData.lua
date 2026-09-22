@@ -8,6 +8,14 @@ EXT.CHANGELOG = {
 		version = version,
 		date = buildDate ~= "" and buildDate or nil,
 		entries = {
+			"Adapted to the latest version of Arcane Wizard: Library to ensure full compatibility",
+			"Minor code adjustments"
+		}
+	},
+	{
+		version = "v2.25",
+		date = "2026-09-18",
+		entries = {
 			"Added: TOC version for patch 1.60.1 [forever]",
 			"Changed: Character profiles now use GUIDs",
 			"Changed: Addon initialization stops if the player identity is unavailable"
@@ -81,15 +89,6 @@ EXT.CHANGELOG = {
 		date = "2026-07-18",
 		entries = {
 			"Minor code adjustments"
-		}
-	},
-	{
-		version = "v2.16",
-		date = "2026-07-12",
-		entries = {
-			"Added: Wago project page button",
-			"Removed: TOC version for patch 5.5.3 [mists of pandaria - classic]",
-			"Removed: TOC version for patch 2.5.5 [burning crusade - classic anniversary edition]"
 		}
 	}
 }
