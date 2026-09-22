@@ -32,12 +32,12 @@ Individual features and display options can be configured in the addon settings.
 * <sup>✨ NEW</sup> Organizes tooltip options into collapsible Display and Item Information groups.
 * <sup>✨ NEW</sup> Disables the expansion display selector and stack size filter when their corresponding main option is turned off.
 
-*\* The expansion can only be displayed in Retail.*
+*\* The expansion can only be displayed in Retail and Forever.*
 
 ## Supported Languages & Flavors
 
 * Languages: English, German, Russian
-* Flavors: Classic, Burning Crusade - Classic Anniversary Edition, Mists of Pandaria - Classic, Retail
+* Flavors: Classic, Burning Crusade - Classic Anniversary Edition, Mists of Pandaria - Classic, Retail, Forever
 
 ## Installation & Quick Start
 
