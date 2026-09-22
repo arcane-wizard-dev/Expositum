@@ -14,6 +14,7 @@ local Options = EXT.Modules.Options
 local Utils = EXT.Modules.Utils
 
 -- Variables
+local defaults = EXT.OPTIONS_DEFAULTS
 local minimapButtonProxy = setmetatable({}, {
 	__index = function(_, key)
 		if key == "hide" then
@@ -51,7 +52,7 @@ function Options:Initialize()
 		variableName	= "hide",
 		name			= L["options.general.minimap-button.name"],
 		tooltip			= L["options.general.minimap-button.tooltip"],
-		default			= true
+		default			= not defaults.general["minimap-button"].hide
 	})
 
 	-- Debug Mode
@@ -61,7 +62,7 @@ function Options:Initialize()
 		variableName	= "debug-mode",
 		name			= L["options.general.debug-mode.name"],
 		tooltip			= L["options.general.debug-mode.tooltip"],
-		default			= false
+		default			= defaults["general"]["debug-mode"]
 	})
 
 	layout:AddInitializer(CreateSettingsListSectionHeaderInitializer(L["options.tooltip"]))
@@ -74,7 +75,7 @@ function Options:Initialize()
 		variableName	= "layout",
 		name			= L["options.tooltip.layout.name"],
 		tooltip			= L["options.tooltip.layout.tooltip"],
-		default			= "columns",
+		default			= defaults["tooltip"]["layout"],
 		options			= EXT.TOOLTIP_LAYOUT_OPTIONS,
 		shownPredicate	= isDisplayExpanded
 	})
@@ -86,21 +87,21 @@ function Options:Initialize()
 		variableName	= "blank-line",
 		name			= L["options.tooltip.blank-line.name"],
 		tooltip			= L["options.tooltip.blank-line.tooltip"],
-		default			= true,
+		default			= defaults["tooltip"]["blank-line"],
 		shownPredicate	= isDisplayExpanded
 	})
 
 	local _, isItemInfoExpanded = AWL.Settings:AddExpandableHeader(layout, L["options.tooltip.section.item-info"])
 
 	-- Expansion Check
-	if AWL.GAME_TYPE_MAINLINE then
+	if AWL.GAME_TYPE_RETAIL or AWL.GAME_TYPE_FOREVER then
 		local expansionInitializer, expansionSetting = AWL.Settings:AddCheckbox(category, {
 			variableTable	= EXT.Settings.tooltip,
 			settingKey		= addonName .. "_expansion",
 			variableName	= "expansion",
 			name			= L["options.tooltip.expansion.name"],
 			tooltip			= L["options.tooltip.expansion.tooltip"],
-			default			= true,
+			default			= defaults["tooltip"]["expansion"],
 			shownPredicate	= isItemInfoExpanded
 		})
 
@@ -110,7 +111,7 @@ function Options:Initialize()
 			variableName	= "expansion-display",
 			name			= L["options.tooltip.expansion-display.name"],
 			tooltip			= L["options.tooltip.expansion-display.tooltip"],
-			default			= "both",
+			default			= defaults["tooltip"]["expansion-display"],
 			options			= EXT.EXPANSION_DISPLAY_OPTIONS,
 			parentInit		= expansionInitializer,
 			parentCondition	= function() return expansionSetting:GetValue() end,
@@ -125,7 +126,7 @@ function Options:Initialize()
 		variableName	= "category",
 		name			= L["options.tooltip.category.name"],
 		tooltip			= L["options.tooltip.category.tooltip"],
-		default			= true,
+		default			= defaults["tooltip"]["category"],
 		shownPredicate	= isItemInfoExpanded
 	})
 
@@ -136,7 +137,7 @@ function Options:Initialize()
 		variableName	= "rarity",
 		name			= L["options.tooltip.rarity.name"],
 		tooltip			= L["options.tooltip.rarity.tooltip"],
-		default			= true,
+		default			= defaults["tooltip"]["rarity"],
 		shownPredicate	= isItemInfoExpanded
 	})
 
@@ -147,7 +148,7 @@ function Options:Initialize()
 		variableName	= "item-level",
 		name			= L["options.tooltip.item-level.name"],
 		tooltip			= L["options.tooltip.item-level.tooltip"],
-		default			= true,
+		default			= defaults["tooltip"]["item-level"],
 		shownPredicate	= isItemInfoExpanded
 	})
 
@@ -158,7 +159,7 @@ function Options:Initialize()
 		variableName	= "item-id",
 		name			= L["options.tooltip.item-id.name"],
 		tooltip			= L["options.tooltip.item-id.tooltip"],
-		default			= true,
+		default			= defaults["tooltip"]["item-id"],
 		shownPredicate	= isItemInfoExpanded
 	})
 
@@ -169,7 +170,7 @@ function Options:Initialize()
 		variableName	= "max-stack-size",
 		name			= L["options.tooltip.max-stack-size.name"],
 		tooltip			= L["options.tooltip.max-stack-size.tooltip"],
-		default			= true,
+		default			= defaults["tooltip"]["max-stack-size"],
 		shownPredicate	= isItemInfoExpanded
 	})
 
@@ -180,7 +181,7 @@ function Options:Initialize()
 		variableName	= "hide-single-stack",
 		name			= L["options.tooltip.hide-single-stack.name"],
 		tooltip			= L["options.tooltip.hide-single-stack.tooltip"],
-		default			= true,
+		default			= defaults["tooltip"]["hide-single-stack"],
 		parentInit		= stackInitializer,
 		parentCondition	= function() return stackSetting:GetValue() end,
 		shownPredicate	= isItemInfoExpanded
@@ -188,13 +189,13 @@ function Options:Initialize()
 
 	-- Profiles Section
 	AWL.Settings:AddProfilesSection(layout, {
-		useAccountProfile			= Utils:IsAccountProfile(),
+		useAccountProfile			= Addon:IsAccountProfile(),
 		onSwitchProfile				= function()
-			Utils:ToggleProfileMode()
+			Addon:ToggleProfileMode()
 			ReloadUI()
 		end,
 		onDeleteCharacterProfiles	= function()
-			Utils:ResetAllCharacterProfiles()
+			Addon:ResetAllCharacterProfiles()
 			ReloadUI()
 		end
 	})

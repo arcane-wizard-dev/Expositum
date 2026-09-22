@@ -158,7 +158,7 @@ function Tooltip:Initialize()
 		ItemRefTooltip:HookScript("OnTooltipSetItem", OnTooltipSetItem)
 		if ShoppingTooltip1 then ShoppingTooltip1:HookScript("OnTooltipSetItem", OnTooltipSetItem) end
 		if ShoppingTooltip2 then ShoppingTooltip2:HookScript("OnTooltipSetItem", OnTooltipSetItem) end
-	elseif AWL.GAME_TYPE_MAINLINE then
+	elseif AWL.GAME_TYPE_RETAIL or AWL.GAME_TYPE_FOREVER then
 		TooltipDataProcessor.AddTooltipPostCall(Enum.TooltipDataType.Item, function(tooltip, data)
 			if not tooltip or (tooltip.IsForbidden and tooltip:IsForbidden()) or not data then return end
 
@@ -189,7 +189,7 @@ function Tooltip:ProcessTooltip(tooltip, itemLink)
 
 	local expansionName = GetExpansionName(expansionID)
 	local rarityText = GetRarityText(itemQuality)
-	local showExpansion = EXT.Settings.tooltip["expansion"] and expansionName
+	local showExpansion = (AWL.GAME_TYPE_RETAIL or AWL.GAME_TYPE_FOREVER) and EXT.Settings.tooltip["expansion"] and expansionName
 	local showCategory = EXT.Settings.tooltip["category"] and itemType ~= nil
 	local showRarity = EXT.Settings.tooltip["rarity"] and rarityText
 	local showItemLevel = EXT.Settings.tooltip["item-level"] and itemLevel ~= nil

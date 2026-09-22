@@ -41,100 +41,24 @@ function Utils:OpenSettings()
 	return true
 end
 
-function Utils:IsAccountProfile()
-	local characterGUID = AWL.Utils:GetCharacterGUID()
-
-	return Expositum_Options_v4.profileKeys[characterGUID]["use-account"]
-end
-
-function Utils:OpenSettingsOnLoading()
-	local characterGUID = AWL.Utils:GetCharacterGUID()
-
-	if Expositum_Options_v4.profileKeys[characterGUID]["open-settings"] then
-		if not self:OpenSettings() then
-			return
-		end
-
-		Expositum_Options_v4.profileKeys[characterGUID]["open-settings"] = false
-	end
-end
-
-function Utils:ToggleProfileMode()
-	local characterGUID = AWL.Utils:GetCharacterGUID()
-	local useAccountProfile = self:IsAccountProfile()
-
-	Expositum_Options_v4.profileKeys[characterGUID]["use-account"] = not useAccountProfile
-	Expositum_Options_v4.profileKeys[characterGUID]["open-settings"] = true
-end
-
-function Utils:ResetAllCharacterProfiles()
-	local characterGUID = AWL.Utils:GetCharacterGUID()
-
-	Expositum_Options_v4.profiles = {}
-	Expositum_Options_v4.profileKeys = {}
-
-	Expositum_Options_v4.profileKeys[characterGUID] = {
-		["use-account"] = true,
-		["open-settings"] = true
-	}
-end
-
 function Utils:InitializeDatabase()
-	local characterGUID = AWL.Utils:GetCharacterGUID()
+	local dbInit = Addon:InitializeOptions({
+		databaseName = "Expositum_Options_v4",
+		defaults = EXT.OPTIONS_DEFAULTS,
+		onOpenSettings = function()
+			return self:OpenSettings()
+		end
+	})
 
-	if not characterGUID then
+	if not dbInit then
 		return nil
 	end
 
-	local createdProfile = false
-	local createdProfileKey = false
+	EXT.Settings.global = dbInit.global
+	EXT.Settings.general = dbInit.settings["general"]
+	EXT.Settings.tooltip = dbInit.settings["tooltip"]
 
-	local defaults = {
-		["general"] = {
-			["minimap-button"] = {
-				["hide"] = false
-			}
-		},
-		["tooltip"] = {}
-	}
-
-	if not Expositum_Options_v4 then
-		Expositum_Options_v4 = {
-			["account"] = AWL.Utils:CopyTable(defaults),
-			["profiles"] = {},
-			["profileKeys"] = {}
-		}
-	end
-
-	if not Expositum_Options_v4.profiles[characterGUID] then
-		Expositum_Options_v4.profiles[characterGUID] = AWL.Utils:CopyTable(defaults)
-		createdProfile = true
-	end
-
-	if not Expositum_Options_v4.profileKeys[characterGUID] then
-		Expositum_Options_v4.profileKeys[characterGUID] = {
-			["use-account"] = true,
-			["open-settings"] = false
-		}
-		createdProfileKey = true
-	end
-
-	local useAccountProfile = Expositum_Options_v4.profileKeys[characterGUID]["use-account"]
-
-	if useAccountProfile then
-		EXT.Settings.general = Expositum_Options_v4.account["general"]
-		EXT.Settings.tooltip = Expositum_Options_v4.account["tooltip"]
-	else
-		EXT.Settings.general = Expositum_Options_v4.profiles[characterGUID]["general"]
-		EXT.Settings.tooltip = Expositum_Options_v4.profiles[characterGUID]["tooltip"]
-	end
-
-	return {
-		characterGUID = characterGUID,
-		createdProfile = createdProfile,
-		createdProfileKey = createdProfileKey,
-		activeProfile = useAccountProfile and "account" or "character"
-	}
+	return dbInit
 end
 
 function Utils:InitializeMinimapButton()
