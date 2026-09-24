@@ -110,7 +110,7 @@ local function GetExpansionText(expansionID, expansionName)
 end
 
 local function GetCategoryText(itemType, itemSubType)
-	if itemSubType and itemSubType ~= "" then
+	if itemSubType and itemSubType ~= "" and itemSubType ~= itemType then
 		return itemType .. " (" .. itemSubType .. ")"
 	end
 
@@ -144,7 +144,7 @@ end
 ------------------------
 
 function Tooltip:Initialize()
-	if AWL.GAME_TYPE_VANILLA or AWL.GAME_TYPE_TBC or AWL.GAME_TYPE_MISTS then
+	if AWL.GAME_TYPE_CLASSIC or AWL.GAME_TYPE_TBC or AWL.GAME_TYPE_MISTS then
 		local function OnTooltipSetItem(tooltip)
 			if not tooltip or (tooltip.IsForbidden and tooltip:IsForbidden()) then return end
 
@@ -189,7 +189,7 @@ function Tooltip:ProcessTooltip(tooltip, itemLink)
 
 	local expansionName = GetExpansionName(expansionID)
 	local rarityText = GetRarityText(itemQuality)
-	local showExpansion = (AWL.GAME_TYPE_RETAIL or AWL.GAME_TYPE_FOREVER) and EXT.Settings.tooltip["expansion"] and expansionName
+	local showExpansion = AWL.GAME_TYPE_RETAIL and EXT.Settings.tooltip["expansion"] and expansionName
 	local showCategory = EXT.Settings.tooltip["category"] and itemType ~= nil
 	local showRarity = EXT.Settings.tooltip["rarity"] and rarityText
 	local showItemLevel = EXT.Settings.tooltip["item-level"] and itemLevel ~= nil

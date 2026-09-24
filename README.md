@@ -22,22 +22,22 @@ Individual features and display options can be configured in the addon settings.
 * Displays the item category (e.g., crafting materials, clothing, etc.).
 * Displays the item rarity in its corresponding quality color.
 * Displays the item level.
-* <sup>✨ NEW</sup> Displays the item ID.
-* <sup>✨ NEW</sup> Displays the maximum stack size.
+* Displays the item ID.
+* Displays the maximum stack size.
 
 ### Display and Settings
 
-* <sup>✨ NEW</sup> Offers two-column or left-aligned layouts for the additional tooltip information.
-* <sup>✨ NEW</sup> Offers badge-only, name-only, or combined expansion displays, and an option to hide stack size 1.
-* <sup>✨ NEW</sup> Organizes tooltip options into collapsible Display and Item Information groups.
-* <sup>✨ NEW</sup> Disables the expansion display selector and stack size filter when their corresponding main option is turned off.
+* Offers two-column or left-aligned layouts for the additional tooltip information.
+* Offers badge-only, name-only, or combined expansion displays, and an option to hide stack size 1.
+* Organizes tooltip options into collapsible Display and Item Information groups.
+* Disables the expansion display selector and stack size filter when their corresponding main option is turned off.
 
-*\* The expansion can only be displayed in Retail and Forever.*
+*\* This feature is only available in Retail.*
 
 ## Supported Languages & Flavors
 
 * Languages: English, German, Russian
-* Flavors: Classic, Burning Crusade - Classic Anniversary Edition, Mists of Pandaria - Classic, Retail, Forever
+* Flavors: Classic, Burning Crusade - Classic Anniversary Edition, Mists of Pandaria - Classic, Forever, Retail
 
 ## Installation & Quick Start
 

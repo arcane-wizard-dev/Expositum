@@ -94,7 +94,7 @@ function Options:Initialize()
 	local _, isItemInfoExpanded = AWL.Settings:AddExpandableHeader(layout, L["options.tooltip.section.item-info"])
 
 	-- Expansion Check
-	if AWL.GAME_TYPE_RETAIL or AWL.GAME_TYPE_FOREVER then
+	if AWL.GAME_TYPE_RETAIL then
 		local expansionInitializer, expansionSetting = AWL.Settings:AddCheckbox(category, {
 			variableTable	= EXT.Settings.tooltip,
 			settingKey		= addonName .. "_expansion",
