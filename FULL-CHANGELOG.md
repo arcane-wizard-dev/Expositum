@@ -1,3 +1,8 @@
+**v2.27 (2026-09-24)**
+- Changed: Item categories are displayed only once when the category and subcategory match
+- Updated: Compatibility with the beta client [forever]
+- Adapted to the latest version of Arcane Wizard: Library to ensure full compatibility
+
 **v2.26 (2026-09-22)**
 - Adapted to the latest version of Arcane Wizard: Library to ensure full compatibility
 - Minor code adjustments
