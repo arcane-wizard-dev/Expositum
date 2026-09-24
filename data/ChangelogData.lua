@@ -8,6 +8,15 @@ EXT.CHANGELOG = {
 		version = version,
 		date = buildDate ~= "" and buildDate or nil,
 		entries = {
+			"Changed: Item categories are displayed only once when the category and subcategory match",
+			"Updated: Compatibility with the beta client [forever]",
+			"Adapted to the latest version of Arcane Wizard: Library to ensure full compatibility"
+		}
+	},
+	{
+		version = "v2.26",
+		date = "2026-09-22",
+		entries = {
 			"Adapted to the latest version of Arcane Wizard: Library to ensure full compatibility",
 			"Minor code adjustments"
 		}
@@ -16,7 +25,7 @@ EXT.CHANGELOG = {
 		version = "v2.25",
 		date = "2026-09-18",
 		entries = {
-			"Added: TOC version for patch 1.60.1 [forever]",
+			"Added: Support for 'Forever'",
 			"Changed: Character profiles now use GUIDs",
 			"Changed: Addon initialization stops if the player identity is unavailable"
 		}
@@ -82,13 +91,6 @@ EXT.CHANGELOG = {
 			"Removed: TOC version for patch 1.15.8 [classic]",
 			"Minor code adjustments",
 			"Adapted to the latest version of Arcane Wizard: Library to ensure full compatibility"
-		}
-	},
-	{
-		version = "v2.17",
-		date = "2026-07-18",
-		entries = {
-			"Minor code adjustments"
 		}
 	}
 }
