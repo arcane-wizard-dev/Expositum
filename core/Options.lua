@@ -14,7 +14,6 @@ local Options = EXT.Modules.Options
 local Utils = EXT.Modules.Utils
 
 -- Variables
-local defaults = EXT.OPTIONS_DEFAULTS
 local minimapButtonProxy = setmetatable({}, {
 	__index = function(_, key)
 		if key == "hide" then
@@ -52,7 +51,7 @@ function Options:Initialize()
 		variableName	= "hide",
 		name			= L["options.general.minimap-button.name"],
 		tooltip			= L["options.general.minimap-button.tooltip"],
-		default			= not defaults.general["minimap-button"].hide
+		default			= not EXT.OPTIONS_DEFAULTS.general["minimap-button"].hide
 	})
 
 	-- Debug Mode
@@ -62,7 +61,7 @@ function Options:Initialize()
 		variableName	= "debug-mode",
 		name			= L["options.general.debug-mode.name"],
 		tooltip			= L["options.general.debug-mode.tooltip"],
-		default			= defaults["general"]["debug-mode"]
+		default			= EXT.OPTIONS_DEFAULTS["general"]["debug-mode"]
 	})
 
 	layout:AddInitializer(CreateSettingsListSectionHeaderInitializer(L["options.tooltip"]))
@@ -75,7 +74,7 @@ function Options:Initialize()
 		variableName	= "layout",
 		name			= L["options.tooltip.layout.name"],
 		tooltip			= L["options.tooltip.layout.tooltip"],
-		default			= defaults["tooltip"]["layout"],
+		default			= EXT.OPTIONS_DEFAULTS["tooltip"]["layout"],
 		options			= EXT.TOOLTIP_LAYOUT_OPTIONS,
 		shownPredicate	= isDisplayExpanded
 	})
@@ -87,7 +86,7 @@ function Options:Initialize()
 		variableName	= "blank-line",
 		name			= L["options.tooltip.blank-line.name"],
 		tooltip			= L["options.tooltip.blank-line.tooltip"],
-		default			= defaults["tooltip"]["blank-line"],
+		default			= EXT.OPTIONS_DEFAULTS["tooltip"]["blank-line"],
 		shownPredicate	= isDisplayExpanded
 	})
 
@@ -101,7 +100,7 @@ function Options:Initialize()
 			variableName	= "expansion",
 			name			= L["options.tooltip.expansion.name"],
 			tooltip			= L["options.tooltip.expansion.tooltip"],
-			default			= defaults["tooltip"]["expansion"],
+			default			= EXT.OPTIONS_DEFAULTS["tooltip"]["expansion"],
 			shownPredicate	= isItemInfoExpanded
 		})
 
@@ -111,7 +110,7 @@ function Options:Initialize()
 			variableName	= "expansion-display",
 			name			= L["options.tooltip.expansion-display.name"],
 			tooltip			= L["options.tooltip.expansion-display.tooltip"],
-			default			= defaults["tooltip"]["expansion-display"],
+			default			= EXT.OPTIONS_DEFAULTS["tooltip"]["expansion-display"],
 			options			= EXT.EXPANSION_DISPLAY_OPTIONS,
 			parentInit		= expansionInitializer,
 			parentCondition	= function() return expansionSetting:GetValue() end,
@@ -126,7 +125,7 @@ function Options:Initialize()
 		variableName	= "category",
 		name			= L["options.tooltip.category.name"],
 		tooltip			= L["options.tooltip.category.tooltip"],
-		default			= defaults["tooltip"]["category"],
+		default			= EXT.OPTIONS_DEFAULTS["tooltip"]["category"],
 		shownPredicate	= isItemInfoExpanded
 	})
 
@@ -137,7 +136,7 @@ function Options:Initialize()
 		variableName	= "rarity",
 		name			= L["options.tooltip.rarity.name"],
 		tooltip			= L["options.tooltip.rarity.tooltip"],
-		default			= defaults["tooltip"]["rarity"],
+		default			= EXT.OPTIONS_DEFAULTS["tooltip"]["rarity"],
 		shownPredicate	= isItemInfoExpanded
 	})
 
@@ -148,7 +147,7 @@ function Options:Initialize()
 		variableName	= "item-level",
 		name			= L["options.tooltip.item-level.name"],
 		tooltip			= L["options.tooltip.item-level.tooltip"],
-		default			= defaults["tooltip"]["item-level"],
+		default			= EXT.OPTIONS_DEFAULTS["tooltip"]["item-level"],
 		shownPredicate	= isItemInfoExpanded
 	})
 
@@ -159,7 +158,7 @@ function Options:Initialize()
 		variableName	= "item-id",
 		name			= L["options.tooltip.item-id.name"],
 		tooltip			= L["options.tooltip.item-id.tooltip"],
-		default			= defaults["tooltip"]["item-id"],
+		default			= EXT.OPTIONS_DEFAULTS["tooltip"]["item-id"],
 		shownPredicate	= isItemInfoExpanded
 	})
 
@@ -170,7 +169,7 @@ function Options:Initialize()
 		variableName	= "max-stack-size",
 		name			= L["options.tooltip.max-stack-size.name"],
 		tooltip			= L["options.tooltip.max-stack-size.tooltip"],
-		default			= defaults["tooltip"]["max-stack-size"],
+		default			= EXT.OPTIONS_DEFAULTS["tooltip"]["max-stack-size"],
 		shownPredicate	= isItemInfoExpanded
 	})
 
@@ -181,7 +180,7 @@ function Options:Initialize()
 		variableName	= "hide-single-stack",
 		name			= L["options.tooltip.hide-single-stack.name"],
 		tooltip			= L["options.tooltip.hide-single-stack.tooltip"],
-		default			= defaults["tooltip"]["hide-single-stack"],
+		default			= EXT.OPTIONS_DEFAULTS["tooltip"]["hide-single-stack"],
 		parentInit		= stackInitializer,
 		parentCondition	= function() return stackSetting:GetValue() end,
 		shownPredicate	= isItemInfoExpanded
