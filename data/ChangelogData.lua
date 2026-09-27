@@ -8,6 +8,13 @@ EXT.CHANGELOG = {
 		version = version,
 		date = buildDate ~= "" and buildDate or nil,
 		entries = {
+			"Minor code adjustments"
+		}
+	},
+	{
+		version = "v2.27",
+		date = "2026-09-24",
+		entries = {
 			"Changed: Item categories are displayed only once when the category and subcategory match",
 			"Updated: Compatibility with the beta client [forever]",
 			"Adapted to the latest version of Arcane Wizard: Library to ensure full compatibility"
@@ -80,17 +87,6 @@ EXT.CHANGELOG = {
 		date = "2026-08-04",
 		entries = {
 			"Minor code adjustments"
-		}
-	},
-	{
-		version = "v2.18",
-		date = "2026-07-28",
-		entries = {
-			"Added: TOC version for patch 1.15.9 [classic]",
-			"Added: Item rarity and color-coded expansion badges are now displayed",
-			"Removed: TOC version for patch 1.15.8 [classic]",
-			"Minor code adjustments",
-			"Adapted to the latest version of Arcane Wizard: Library to ensure full compatibility"
 		}
 	}
 }
