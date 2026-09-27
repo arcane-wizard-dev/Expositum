@@ -1,3 +1,6 @@
+**v2.28 (2026-09-27)**
+- Minor code adjustments
+
 **v2.27 (2026-09-24)**
 - Changed: Item categories are displayed only once when the category and subcategory match
 - Updated: Compatibility with the beta client [forever]
