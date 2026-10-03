@@ -226,6 +226,6 @@ function Tooltip:ProcessTooltip(tooltip, itemLink)
 	end
 
 	if showMaxStackSize then
-		AddItemLine(tooltip, lineState, { key = "max-stack-size", label = L["tooltip.max-stack-size"], value = "|cnWHITE_FONT_COLOR:" .. maxStackSize .. "|r" })
+		AddItemLine(tooltip, lineState, { key = "max-stack-size", label = L["tooltip.max-stack-size"], value = "|cnWHITE_FONT_COLOR:" .. BreakUpLargeNumbers(maxStackSize) .. "|r" })
 	end
 end
