@@ -8,6 +8,14 @@ EXT.CHANGELOG = {
 		version = version,
 		date = buildDate ~= "" and buildDate or nil,
 		entries = {
+			"Changed: Maximum stack sizes now use thousands separators",
+			"Updated: Logo"
+		}
+	},
+	{
+		version = "v2.28",
+		date = "2026-09-27",
+		entries = {
 			"Minor code adjustments"
 		}
 	},
@@ -80,13 +88,6 @@ EXT.CHANGELOG = {
 		date = "2026-08-14",
 		entries = {
 			"Removed: TOC version for patch 12.0.7 [retail]"
-		}
-	},
-	{
-		version = "v2.19",
-		date = "2026-08-04",
-		entries = {
-			"Minor code adjustments"
 		}
 	}
 }
