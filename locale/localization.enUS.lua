@@ -1,9 +1,12 @@
 local _, EXT = ...
 
-EXT.Localization = setmetatable({},{__index=function(self,key)
+EXT.Localization = setmetatable({},{
+	__index=function(self,key)
 		geterrorhandler()("Expositum (Debug): Missing entry for '" .. tostring(key) .. "'")
+
 		return key
-	end})
+	end
+})
 
 local L = EXT.Localization
 
@@ -45,7 +48,6 @@ L["options.tooltip.blank-line.name"] = "Insert Blank Line"
 L["options.tooltip.blank-line.tooltip"] = "Inserts a blank line before the additional item information in the tooltip."
 
 -- General
-
 
 L["minimap-button.tooltip"] = "|cnLINK_FONT_COLOR:Right-click|r to open the options."
 

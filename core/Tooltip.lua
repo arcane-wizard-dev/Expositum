@@ -75,6 +75,7 @@ local function AddItemLine(tooltip, state, entry)
 	else
 		tooltip:AddDoubleLine(entry.label, entry.value)
 	end
+
 	state.lineKeys[entry.key] = true
 end
 
@@ -103,6 +104,7 @@ local function GetExpansionText(expansionID, expansionName)
 	if expansionBadge and expansionBadge.texture then
 		local badgeText = ("|T%s:16:32|t"):format(expansionBadge.texture)
 		if displayMode == "badge" then return badgeText end
+
 		return badgeText .. " " .. expansionText
 	end
 
@@ -149,6 +151,7 @@ function Tooltip:Initialize()
 			if not tooltip or (tooltip.IsForbidden and tooltip:IsForbidden()) then return end
 
 			local _, link = tooltip:GetItem()
+
 			if link then
 				self:ProcessTooltip(tooltip, link)
 			end
@@ -156,8 +159,14 @@ function Tooltip:Initialize()
 
 		GameTooltip:HookScript("OnTooltipSetItem", OnTooltipSetItem)
 		ItemRefTooltip:HookScript("OnTooltipSetItem", OnTooltipSetItem)
-		if ShoppingTooltip1 then ShoppingTooltip1:HookScript("OnTooltipSetItem", OnTooltipSetItem) end
-		if ShoppingTooltip2 then ShoppingTooltip2:HookScript("OnTooltipSetItem", OnTooltipSetItem) end
+
+		if ShoppingTooltip1 then
+			ShoppingTooltip1:HookScript("OnTooltipSetItem", OnTooltipSetItem)
+		end
+
+		if ShoppingTooltip2 then
+			ShoppingTooltip2:HookScript("OnTooltipSetItem", OnTooltipSetItem)
+		end
 	elseif AWL.GAME_TYPE_RETAIL or AWL.GAME_TYPE_FOREVER then
 		TooltipDataProcessor.AddTooltipPostCall(Enum.TooltipDataType.Item, function(tooltip, data)
 			if not tooltip or (tooltip.IsForbidden and tooltip:IsForbidden()) or not data then return end

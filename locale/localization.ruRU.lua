@@ -43,7 +43,6 @@ L["options.tooltip.blank-line.tooltip"] = "Вставляет пустую ст�
 
 -- General
 
-
 L["minimap-button.tooltip"] = "|cnLINK_FONT_COLOR:Щелкните правой кнопкой мыши|r, чтобы открыть настройки."
 
 -- Chat

@@ -43,7 +43,6 @@ L["options.tooltip.blank-line.tooltip"] = "Fügt im Tooltip vor den zusätzliche
 
 -- General
 
-
 L["minimap-button.tooltip"] = "|cnLINK_FONT_COLOR:Rechtsklick|r zum Öffnen der Einstellungen."
 
 -- Chat

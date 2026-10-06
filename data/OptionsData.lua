@@ -1,6 +1,5 @@
 local _, EXT = ...
 
--- Complete defaults for every supported WoW variant.
 EXT.OPTIONS_DEFAULTS = {
 	["general"] = {
 		["minimap-button"] = {
