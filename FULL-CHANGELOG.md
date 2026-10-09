@@ -1,3 +1,6 @@
+**v2.30 (2026-10-09)**
+- Minor code adjustments
+
 **v2.29 (2026-10-03)**
 - Changed: Maximum stack sizes now use thousands separators
 - Updated: Logo
