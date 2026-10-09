@@ -8,6 +8,13 @@ EXT.CHANGELOG = {
 		version = version,
 		date = buildDate ~= "" and buildDate or nil,
 		entries = {
+			"Minor code adjustments"
+		}
+	},
+	{
+		version = "v2.29",
+		date = "2026-10-03",
+		entries = {
 			"Changed: Maximum stack sizes now use thousands separators",
 			"Updated: Logo"
 		}
@@ -81,13 +88,6 @@ EXT.CHANGELOG = {
 			"Added: Changelog window available through the 'changelog' slash command",
 			"Removed: Version notice chat messages",
 			"Adapted to the latest version of Arcane Wizard: Library to ensure full compatibility"
-		}
-	},
-	{
-		version = "v2.20",
-		date = "2026-08-14",
-		entries = {
-			"Removed: TOC version for patch 12.0.7 [retail]"
 		}
 	}
 }
