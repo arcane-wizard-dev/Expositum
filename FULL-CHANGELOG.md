@@ -1,3 +1,6 @@
+**v2.31 (2026-10-12)**
+- Refactoring of the addon structure and source code
+
 **v2.30 (2026-10-09)**
 - Minor code adjustments
 
