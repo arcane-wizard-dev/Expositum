@@ -8,6 +8,13 @@ EXT.CHANGELOG = {
 		version = version,
 		date = buildDate ~= "" and buildDate or nil,
 		entries = {
+			"Refactoring of the addon structure and source code"
+		}
+	},
+	{
+		version = "v2.30",
+		date = "2026-10-09",
+		entries = {
 			"Minor code adjustments"
 		}
 	},
@@ -78,16 +85,6 @@ EXT.CHANGELOG = {
 		date = "2026-08-30",
 		entries = {
 			"Minor code adjustments"
-		}
-	},
-	{
-		version = "v2.21",
-		date = "2026-08-18",
-		entries = {
-			"Added: Changelog window available from the options menu",
-			"Added: Changelog window available through the 'changelog' slash command",
-			"Removed: Version notice chat messages",
-			"Adapted to the latest version of Arcane Wizard: Library to ensure full compatibility"
 		}
 	}
 }
