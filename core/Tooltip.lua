@@ -6,6 +6,8 @@ local AWL = ArcaneWizardLibrary
 -- Localization
 local L = EXT.Localization
 
+local TooltipConfig = EXT.UIConfig.Tooltip
+
 -- Module imports
 local Utils = EXT.Modules.Utils
 
@@ -99,7 +101,7 @@ local function GetExpansionText(expansionID, expansionName)
 	local displayMode = EXT.Settings.tooltip["expansion-display"]
 	if displayMode == "name" then return expansionText end
 
-	local expansionBadge = EXT.EXPANSION_BADGES[expansionID]
+	local expansionBadge = TooltipConfig.expansionBadges[expansionID]
 
 	if expansionBadge and expansionBadge.texture then
 		local badgeText = ("|T%s:16:32|t"):format(expansionBadge.texture)

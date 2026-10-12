@@ -3,6 +3,7 @@ local addonName, EXT = ...
 EXT.Settings = EXT.Settings or {}
 EXT.Data = EXT.Data or {}
 EXT.State = EXT.State or {}
+EXT.UIConfig = EXT.UIConfig or {}
 EXT.Modules = EXT.Modules or {}
 
 EXT.Modules.Options = EXT.Modules.Options or {}

@@ -7,6 +7,8 @@ local Addon = AWL:GetAddon(addonName)
 -- Localization
 local L = EXT.Localization
 
+local TooltipConfig = EXT.UIConfig.Tooltip
+
 -- Current module
 local Options = EXT.Modules.Options
 
@@ -75,7 +77,7 @@ function Options:Initialize()
 		name			= L["options.tooltip.layout.name"],
 		tooltip			= L["options.tooltip.layout.tooltip"],
 		default			= EXT.OPTIONS_DEFAULTS["tooltip"]["layout"],
-		options			= EXT.TOOLTIP_LAYOUT_OPTIONS,
+		options			= TooltipConfig.layoutOptions,
 		shownPredicate	= isDisplayExpanded
 	})
 
@@ -111,7 +113,7 @@ function Options:Initialize()
 			name			= L["options.tooltip.expansion-display.name"],
 			tooltip			= L["options.tooltip.expansion-display.tooltip"],
 			default			= EXT.OPTIONS_DEFAULTS["tooltip"]["expansion-display"],
-			options			= EXT.EXPANSION_DISPLAY_OPTIONS,
+			options			= TooltipConfig.expansionDisplayOptions,
 			parentInit		= expansionInitializer,
 			parentCondition	= function() return expansionSetting:GetValue() end,
 			shownPredicate	= isItemInfoExpanded
