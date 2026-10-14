@@ -2,6 +2,8 @@ local _, EXT = ...
 
 EXT.Localization = setmetatable({},{
 	__index=function(self,key)
+		rawset(self, key, key)
+
 		geterrorhandler()("Expositum (Debug): Missing entry for '" .. tostring(key) .. "'")
 
 		return key
