@@ -8,6 +8,13 @@ EXT.CHANGELOG = {
 		version = version,
 		date = buildDate ~= "" and buildDate or nil,
 		entries = {
+			"Fixed: Repeated error messages for missing translations"
+		}
+	},
+	{
+		version = "v2.31",
+		date = "2026-10-12",
+		entries = {
 			"Refactoring of the addon structure and source code"
 		}
 	},
@@ -78,13 +85,6 @@ EXT.CHANGELOG = {
 			"Added: TOC version for patch 12.1.5 [retail]",
 			"Changed: Tooltip options are organized into collapsible display and item information groups, with dependent settings disabled when their parent option is off",
 			"Updated: enUS, ruRU localizations"
-		}
-	},
-	{
-		version = "v2.22",
-		date = "2026-08-30",
-		entries = {
-			"Minor code adjustments"
 		}
 	}
 }
