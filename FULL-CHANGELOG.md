@@ -1,3 +1,6 @@
+**v2.33 (2026-10-16)**
+- Adapted to the latest version of Arcane Wizard: Library to ensure full compatibility
+
 **v2.32 (2026-10-14)**
 - Fixed: Repeated error messages for missing translations
 
