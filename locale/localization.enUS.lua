@@ -53,8 +53,6 @@ L["options.tooltip.blank-line.tooltip"] = "Inserts a blank line before the addit
 
 L["minimap-button.tooltip"] = "|cnLINK_FONT_COLOR:Right-click|r to open the options."
 
--- Chat
-
 -- Tooltip
 
 L["tooltip.expansion"] = "Expansion"
