@@ -18,7 +18,7 @@ Individual features and display options can be configured in the addon settings.
 
 ### Item Information
 
-* Displays the corresponding expansion with a color-coded abbreviation badge for the item*.
+* Displays the corresponding expansion with a color-coded abbreviation badge for the item.\*
 * Displays the item category (e.g., crafting materials, clothing, etc.).
 * Displays the item rarity in its corresponding quality color.
 * Displays the item level.
