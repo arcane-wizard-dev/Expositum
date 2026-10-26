@@ -1,5 +1,7 @@
 local _, EXT = ...
 
+if EXT.State and EXT.State.libraryIncompatible then return end
+
 EXT.OPTIONS_DEFAULTS = {
 	["general"] = {
 		["minimap-button"] = {

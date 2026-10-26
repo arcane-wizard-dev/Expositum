@@ -2,15 +2,15 @@
 
 [![GitHub Release](https://img.shields.io/github/v/release/arcane-wizard-dev/Expositum?color=blue&logo=github&cacheSeconds=600)](https://github.com/arcane-wizard-dev/Expositum/releases) [![GitHub Release Date](https://img.shields.io/github/release-date/arcane-wizard-dev/Expositum?color=blue&logo=github&cacheSeconds=600)](https://github.com/arcane-wizard-dev/Expositum/releases)
 
-_Reveal an item's origin and purpose._
+_See more item details at a glance._
 
-Expositum is a World of Warcraft addon that provides additional information about items directly in the tooltip.
+Expositum is a World of Warcraft addon that adds configurable details to item tooltips, including item category, quality, item level, item ID and maximum stack size. In Retail, it can also display the item’s expansion.
 
 > ⚠️ **Important!** This addon requires **Arcane Wizard: Library**. See Installation & Quick Start for installation details.
 
 ## Key Feature
 
-**Tooltip Enhancements** - Enriches item tooltips with useful additional information at a glance.
+**Tooltip Enhancements** - Choose which item details appear in tooltips and display them in a two-column or left-aligned layout.
 
 ## Features
 

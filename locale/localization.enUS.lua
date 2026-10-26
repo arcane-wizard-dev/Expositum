@@ -1,5 +1,7 @@
 local _, EXT = ...
 
+if EXT.State and EXT.State.libraryIncompatible then return end
+
 EXT.Localization = setmetatable({},{
 	__index=function(self,key)
 		rawset(self, key, key)

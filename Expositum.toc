@@ -8,6 +8,7 @@
 ## DefaultState: enabled
 
 ## Dependencies: ArcaneWizardLibrary
+## X-Library-Revision: 1
 
 ## Notes: This addon provides additional information about items in the tooltip.
 ## Notes-deDE: Dieses Addon stellt zusätzliche Informationen zu Gegenständen im Tooltip bereit.
@@ -26,5 +27,6 @@
 ## X-Curseforge: https://www.curseforge.com/wow/addons/expositum
 ## X-Wago: https://addons.wago.io/addons/expositum
 
+LibraryCompatibility.lua
 Expositum.xml
 Expositum.lua

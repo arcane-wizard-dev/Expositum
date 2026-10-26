@@ -1,5 +1,7 @@
 local _, EXT = ...
 
+if EXT.State and EXT.State.libraryIncompatible then return end
+
 local function GetLocalizedExpansionName(expansionID, fallback)
 	return _G["EXPANSION_NAME" .. expansionID] or fallback
 end

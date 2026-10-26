@@ -1,5 +1,7 @@
 local addonName, EXT = ...
 
+if EXT.State and EXT.State.libraryIncompatible then return end
+
 local expansionBadgePath = "Interface\\AddOns\\" .. addonName .. "\\assets\\expansion-badges\\"
 
 EXT.UIConfig.Tooltip = {

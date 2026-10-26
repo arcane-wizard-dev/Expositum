@@ -1,5 +1,7 @@
 local addonName, EXT = ...
 
+if EXT.State and EXT.State.libraryIncompatible then return end
+
 -- Library
 local AWL = ArcaneWizardLibrary
 local Addon = AWL:GetAddon(addonName)
