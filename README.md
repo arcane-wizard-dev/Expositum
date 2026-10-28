@@ -2,7 +2,7 @@
 
 [![GitHub Release](https://img.shields.io/github/v/release/arcane-wizard-dev/Expositum?color=blue&logo=github&cacheSeconds=600)](https://github.com/arcane-wizard-dev/Expositum/releases) [![GitHub Release Date](https://img.shields.io/github/release-date/arcane-wizard-dev/Expositum?color=blue&logo=github&cacheSeconds=600)](https://github.com/arcane-wizard-dev/Expositum/releases)
 
-_More details at a glance._
+_More details at a glance, where needed._
 
 Expositum is a World of Warcraft addon that makes item tooltips more informative. It brings additional details into the tooltip, and their presentation can be customized.
 
