@@ -1,3 +1,9 @@
+**v2.34 (2026-10-28)**
+- Added: Startup check for the minimum required Library revision
+- Updated: deDE, enUS, ruRU localizations
+- Updated: Addon description
+- Minor code adjustments
+
 **v2.33 (2026-10-16)**
 - Adapted to the latest version of Arcane Wizard: Library to ensure full compatibility
 
