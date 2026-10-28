@@ -28,9 +28,9 @@ Individual features and display options can be configured in the addon settings.
 ### Display and Settings
 
 * Offers two-column or left-aligned layouts for the additional tooltip information.
-* Offers badge-only, name-only, or combined expansion displays, and an option to hide stack size 1.
-* Organizes tooltip options into collapsible Display and Item Information groups.
-* Disables the expansion display selector and stack size filter when their corresponding main option is turned off.
+* Offers badge-only, name-only, or combined expansion displays, and an option to hide a maximum stack size of 1.
+* Organizes tooltip options into collapsible "Display" and "Item Information" groups.
+* Disables the expansion display selector and stack size filter when their respective main options are turned off.
 
 *\* This feature is only available in Retail.*
 
