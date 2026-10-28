@@ -9,12 +9,11 @@ local Addon = AWL:GetAddon(addonName)
 -- Localization
 local L = EXT.Localization
 
-local TooltipConfig = EXT.UIConfig.Tooltip
-
 -- Current module
 local Options = EXT.Modules.Options
 
 -- Module imports
+local TooltipConfig = EXT.UIConfig.Tooltip
 local Utils = EXT.Modules.Utils
 
 -- Variables

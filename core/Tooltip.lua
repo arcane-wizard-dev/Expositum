@@ -8,13 +8,12 @@ local AWL = ArcaneWizardLibrary
 -- Localization
 local L = EXT.Localization
 
-local TooltipConfig = EXT.UIConfig.Tooltip
-
--- Module imports
-local Utils = EXT.Modules.Utils
-
 -- Current module
 local Tooltip = EXT.Modules.Tooltip
+
+-- Module imports
+local TooltipConfig = EXT.UIConfig.Tooltip
+local Utils = EXT.Modules.Utils
 
 -- Variables
 local tooltipLineStates = setmetatable({}, { __mode = "k" })

@@ -2,15 +2,15 @@
 
 [![GitHub Release](https://img.shields.io/github/v/release/arcane-wizard-dev/Expositum?color=blue&logo=github&cacheSeconds=600)](https://github.com/arcane-wizard-dev/Expositum/releases) [![GitHub Release Date](https://img.shields.io/github/release-date/arcane-wizard-dev/Expositum?color=blue&logo=github&cacheSeconds=600)](https://github.com/arcane-wizard-dev/Expositum/releases)
 
-_See more item details at a glance._
+_More details at a glance._
 
-Expositum is a World of Warcraft addon that adds configurable details to item tooltips, including item category, quality, item level, item ID and maximum stack size. In Retail, it can also display the item’s expansion.
+Expositum is a World of Warcraft addon that makes item tooltips more informative. It brings additional details into the tooltip, and their presentation can be customized.
 
 > ⚠️ **Important!** This addon requires **Arcane Wizard: Library**. See Installation & Quick Start for installation details.
 
 ## Key Feature
 
-**Tooltip Enhancements** - Choose which item details appear in tooltips and display them in a two-column or left-aligned layout.
+**Tooltip Enhancements** - Adds item information whose content and layout can be adjusted to show the desired details in a suitable format.
 
 ## Features
 
@@ -19,8 +19,8 @@ Individual features and display options can be configured in the addon settings.
 ### Item Information
 
 * Displays the corresponding expansion with a color-coded abbreviation badge for the item.\*
-* Displays the item category (e.g., crafting materials, clothing, etc.).
-* Displays the item rarity in its corresponding quality color.
+* Displays the item category (e.g., Tradeskill, Armor).
+* Displays the item quality in its quality color.
 * Displays the item level.
 * Displays the item ID.
 * Displays the maximum stack size.
@@ -41,16 +41,16 @@ Individual features and display options can be configured in the addon settings.
 
 ## Installation & Quick Start
 
-> **Required Dependency:** This addon requires the **Arcane Wizard: Library**. If you install Expositum via the CurseForge client, the library will be downloaded automatically. If you install the addon manually, via Wago, or through another third-party updater that does not resolve dependencies, you must download and enable the library separately.
+> **Required Dependency:** This addon requires **Arcane Wizard: Library**. If you install Expositum via the CurseForge client, the library will be downloaded automatically. If you install the addon manually, via Wago, or through another third-party updater that does not resolve dependencies, you must download and enable the library separately.
 
-To manage the addon, use the following commands in your chat and press enter:
+To manage the addon, type the following commands in chat and press Enter:
 
 * Type `/ext` or `/expositum` to access the addon options menu.
 * Type `/ext changelog` or `/expositum changelog` to open the changelog.
 
 ## Bugs & Feedback
 
-If you find a bug or have a suggestion, please use the GitHub Issues or the CurseForge comments.
+If you find a bug or have a suggestion, please open a GitHub issue or leave a comment on CurseForge.
 
 ## Translation Support
 
