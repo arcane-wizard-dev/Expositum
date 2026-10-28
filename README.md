@@ -4,13 +4,13 @@
 
 _More details at a glance, where needed._
 
-Expositum is a World of Warcraft addon that makes item tooltips more informative. It brings additional details into the tooltip, and their presentation can be customized.
+Expositum is a World of Warcraft addon that makes item tooltips more informative. You can choose which additional details appear and adjust how they are presented.
 
 > ⚠️ **Important!** This addon requires **Arcane Wizard: Library**. See Installation & Quick Start for installation details.
 
 ## Key Feature
 
-**Tooltip Enhancements** - Adds item information whose content and layout can be adjusted to show the desired details in a suitable format.
+**Tooltip Enhancements** - Offers a choice of additional item details and adjustable layouts for a clear overview within the tooltip.
 
 ## Features
 

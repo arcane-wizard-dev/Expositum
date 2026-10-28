@@ -10,9 +10,9 @@
 ## Dependencies: ArcaneWizardLibrary
 ## X-Library-Revision: 1
 
-## Notes: This addon adds additional information to item tooltips. Which details are shown and how they are presented can be configured.
-## Notes-deDE: Dieses Addon ergänzt Gegenstandstooltips um zusätzliche Informationen. Welche Details erscheinen und wie sie dargestellt werden, lässt sich festlegen.
-## Notes-ruRU: Этот аддон делает подсказки к предметам информативнее. Он добавляет в подсказку дополнительные сведения и позволяет выбрать, как они отображаются.
+## Notes: This addon makes item tooltips more informative. You can choose which additional details appear and adjust how they are presented.
+## Notes-deDE: Dieses Addon ergänzt Gegenstandstooltips um hilfreiche Informationen. Du bestimmst, welche zusätzlichen Angaben erscheinen und wie sie dargestellt werden.
+## Notes-ruRU: Этот аддон делает подсказки к предметам информативнее. Он позволяет выбрать дополнительные сведения для отображения и настроить их оформление.
 
 ## LoadSavedVariablesFirst: 1
 ## SavedVariables: Expositum_Options_v4
