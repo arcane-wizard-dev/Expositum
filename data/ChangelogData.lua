@@ -12,6 +12,14 @@ EXT.CHANGELOG = {
 		version = version,
 		date = buildDate ~= "" and buildDate or nil,
 		entries = {
+			"Added: TOC version for patch 12.1.7 [retail]",
+			"Removed: TOC version for patch 12.1.0 [retail]"
+		}
+	},
+	{
+		version = "v2.34",
+		date = "2026-10-28",
+		entries = {
 			"Added: Startup check for the minimum required Library revision",
 			"Updated: deDE, enUS, ruRU localizations",
 			"Updated: Addon description",
@@ -76,15 +84,6 @@ EXT.CHANGELOG = {
 		entries = {
 			"Adapted to the latest version of Arcane Wizard: Library to ensure full compatibility",
 			"Minor code adjustments"
-		}
-	},
-	{
-		version = "v2.25",
-		date = "2026-09-18",
-		entries = {
-			"Added: Support for 'Forever'",
-			"Changed: Character profiles now use GUIDs",
-			"Changed: Addon initialization stops if the player identity is unavailable"
 		}
 	}
 	-- END GENERATED CHANGELOG
