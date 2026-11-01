@@ -12,6 +12,13 @@ EXT.CHANGELOG = {
 		version = version,
 		date = buildDate ~= "" and buildDate or nil,
 		entries = {
+			"Changed: The TOC now excludes only Talebound by game type"
+		}
+	},
+	{
+		version = "v2.36",
+		date = "2026-11-01",
+		entries = {
 			"Changed: Clarified labels and tooltips in the options menu",
 			"Changed: Limited loading to Retail, Forever, and Classic",
 			"Updated: deDE, enUS localizations"
@@ -76,15 +83,6 @@ EXT.CHANGELOG = {
 		date = "2026-09-27",
 		entries = {
 			"Minor code adjustments"
-		}
-	},
-	{
-		version = "v2.27",
-		date = "2026-09-24",
-		entries = {
-			"Changed: Item categories are displayed only once when the category and subcategory match",
-			"Updated: Compatibility with the beta client [forever]",
-			"Adapted to the latest version of Arcane Wizard: Library to ensure full compatibility"
 		}
 	}
 	-- END GENERATED CHANGELOG
