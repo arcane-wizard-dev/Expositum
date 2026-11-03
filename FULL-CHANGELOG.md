@@ -1,3 +1,9 @@
+**v2.38 (2026-11-03)**
+- Changed: The debug mode option now combines an enable checkbox with a Basic or Advanced level selector
+- Updated: deDE, enUS, ruRU localizations
+- Requires Arcane Wizard: Library revision 2 or later
+- Minor code adjustments
+
 **v2.37 (2026-11-01)**
 - Changed: The TOC now excludes only Talebound by game type
 
