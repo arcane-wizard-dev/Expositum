@@ -12,6 +12,16 @@ EXT.CHANGELOG = {
 		version = version,
 		date = buildDate ~= "" and buildDate or nil,
 		entries = {
+			"Changed: The debug mode option now combines an enable checkbox with a Basic or Advanced level selector",
+			"Updated: deDE, enUS, ruRU localizations",
+			"Requires Arcane Wizard: Library revision 2 or later",
+			"Minor code adjustments"
+		}
+	},
+	{
+		version = "v2.37",
+		date = "2026-11-01",
+		entries = {
 			"Changed: The TOC now excludes only Talebound by game type"
 		}
 	},
@@ -76,13 +86,6 @@ EXT.CHANGELOG = {
 		entries = {
 			"Changed: Maximum stack sizes now use thousands separators",
 			"Updated: Logo"
-		}
-	},
-	{
-		version = "v2.28",
-		date = "2026-09-27",
-		entries = {
-			"Minor code adjustments"
 		}
 	}
 	-- END GENERATED CHANGELOG
