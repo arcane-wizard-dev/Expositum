@@ -16,8 +16,8 @@ local TooltipConfig = EXT.UIConfig.Tooltip
 local Utils = EXT.Modules.Utils
 
 -- Variables
-local tooltipLineStates = setmetatable({}, { __mode = "k" })
-local tooltipResetHooks = setmetatable({}, { __mode = "k" })
+local tooltipLineStates = setmetatable({}, {__mode = "k"})
+local tooltipResetHooks = setmetatable({}, {__mode = "k"})
 
 -----------------------
 --- Local Functions ---
@@ -54,7 +54,7 @@ local function GetTooltipLineState(tooltip, itemLink)
 	local itemID = GetItemID(itemLink)
 
 	if not itemID then
-		return { lineKeys = {} }
+		return {lineKeys = {}}
 	end
 
 	local state = tooltipLineStates[tooltip]
@@ -218,34 +218,34 @@ function Tooltip:ProcessTooltip(tooltip, itemLink)
 	end
 
 	if showExpansion then
-		AddItemLine(tooltip, lineState, { key = "expansion", label = L["tooltip.expansion"], value = GetExpansionText(expansionID, expansionName) })
+		AddItemLine(tooltip, lineState, {key = "expansion", label = L["tooltip.expansion"], value = GetExpansionText(expansionID, expansionName)})
 	end
 
 	if showCategory then
 		AddItemLine(
 			tooltip,
 			lineState,
-			{ key = "category", label = L["tooltip.category"], value = "|cnWHITE_FONT_COLOR:" .. GetCategoryText(itemType, itemSubType) .. "|r" }
+			{key = "category", label = L["tooltip.category"], value = "|cnWHITE_FONT_COLOR:" .. GetCategoryText(itemType, itemSubType) .. "|r"}
 		)
 	end
 
 	if showRarity then
-		AddItemLine(tooltip, lineState, { key = "rarity", label = L["tooltip.rarity"], value = rarityText })
+		AddItemLine(tooltip, lineState, {key = "rarity", label = L["tooltip.rarity"], value = rarityText})
 	end
 
 	if showItemLevel then
-		AddItemLine(tooltip, lineState, { key = "item-level", label = L["tooltip.item-level"], value = "|cnWHITE_FONT_COLOR:" .. itemLevel .. "|r" })
+		AddItemLine(tooltip, lineState, {key = "item-level", label = L["tooltip.item-level"], value = "|cnWHITE_FONT_COLOR:" .. itemLevel .. "|r"})
 	end
 
 	if showItemID then
-		AddItemLine(tooltip, lineState, { key = "item-id", label = L["tooltip.item-id"], value = "|cnWHITE_FONT_COLOR:" .. itemID .. "|r" })
+		AddItemLine(tooltip, lineState, {key = "item-id", label = L["tooltip.item-id"], value = "|cnWHITE_FONT_COLOR:" .. itemID .. "|r"})
 	end
 
 	if showMaxStackSize then
 		AddItemLine(
 			tooltip,
 			lineState,
-			{ key = "max-stack-size", label = L["tooltip.max-stack-size"], value = "|cnWHITE_FONT_COLOR:" .. BreakUpLargeNumbers(maxStackSize) .. "|r" }
+			{key = "max-stack-size", label = L["tooltip.max-stack-size"], value = "|cnWHITE_FONT_COLOR:" .. BreakUpLargeNumbers(maxStackSize) .. "|r"}
 		)
 	end
 end

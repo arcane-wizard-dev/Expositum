@@ -58,13 +58,22 @@ function Options:Initialize()
 	})
 
 	-- Debug Mode
-	AWL.Settings:AddCheckbox(category, {
-		variableTable	= EXT.Settings.general,
-		settingKey		= addonName .. "_debug-mode",
-		variableName	= "debug-mode",
-		name			= L["options.general.debug-mode.name"],
-		tooltip			= L["options.general.debug-mode.tooltip"],
-		default			= EXT.OPTIONS_DEFAULTS["general"]["debug-mode"]
+	AWL.Settings:AddCheckboxDropdownCombo(category, layout, {
+		variableTable			= EXT.Settings.general,
+		checkboxSettingKey		= addonName .. "_debug-mode",
+		checkboxVariableName	= "debug-mode",
+		checkboxName			= L["options.general.debug-mode.name"],
+		checkboxTooltip			= L["options.general.debug-mode.tooltip"],
+		checkboxDefault			= EXT.OPTIONS_DEFAULTS.general["debug-mode"],
+		dropdownSettingKey		= addonName .. "_debug-level",
+		dropdownVariableName	= "debug-level",
+		dropdownName			= L["options.general.debug-mode.level.name"],
+		dropdownTooltip			= L["options.general.debug-mode.level.tooltip"],
+		dropdownDefault			= EXT.OPTIONS_DEFAULTS.general["debug-level"],
+		dropdownOptions			= {
+			{value = "basic", label = L["options.general.debug-mode.level.value.basic"]},
+			{value = "advanced", label = L["options.general.debug-mode.level.value.advanced"]}
+		}
 	})
 
 	layout:AddInitializer(CreateSettingsListSectionHeaderInitializer(L["options.tooltip"]))
@@ -107,6 +116,7 @@ function Options:Initialize()
 			shownPredicate	= isItemInfoExpanded
 		})
 
+		-- Expansion Display
 		AWL.Settings:AddDropdown(category, {
 			variableTable	= EXT.Settings.tooltip,
 			settingKey		= addonName .. "_expansion-display",
