@@ -66,14 +66,14 @@ function ExpositumFrame:ADDON_LOADED(_, addOnName)
 
 	isInitialized = true
 
-	Utils:PrintDebug(string.format(
+	Utils:PrintDebug(
 		"InitializeDatabase: key=%s, createdProfile=%s, createdProfileKey=%s, cleanedOptions=%s, activeProfile=%s",
-		tostring(dbInit.characterGUID),
-		tostring(dbInit.createdProfile),
-		tostring(dbInit.createdProfileKey),
-		tostring(dbInit.cleanedOptions),
-		tostring(dbInit.activeProfile)
-	))
+		dbInit.characterGUID,
+		dbInit.createdProfile,
+		dbInit.createdProfileKey,
+		dbInit.cleanedOptions,
+		dbInit.activeProfile
+	)
 	Utils:PrintDebug("Addon fully loaded.")
 end
 

@@ -9,7 +9,7 @@
 ## DefaultState: enabled
 
 ## Dependencies: ArcaneWizardLibrary
-## X-Library-Revision: 2
+## X-Library-Revision: 4
 
 ## Notes: This addon makes item tooltips more informative. You can choose which additional details appear and adjust how they are presented.
 ## Notes-deDE: Dieses Addon ergänzt Gegenstandstooltips um hilfreiche Informationen. Du bestimmst, welche zusätzlichen Angaben erscheinen und wie sie dargestellt werden.
