@@ -12,6 +12,14 @@ EXT.CHANGELOG = {
 		version = version,
 		date = buildDate ~= "" and buildDate or nil,
 		entries = {
+			"Changed: Debug messages are now converted and formatted only when debug mode is enabled",
+			"Requires Arcane Wizard: Library revision 4 or later"
+		}
+	},
+	{
+		version = "v2.38",
+		date = "2026-11-03",
+		entries = {
 			"Changed: The debug mode option now combines an enable checkbox with a Basic or Advanced level selector",
 			"Updated: deDE, enUS, ruRU localizations",
 			"Requires Arcane Wizard: Library revision 2 or later",
@@ -78,14 +86,6 @@ EXT.CHANGELOG = {
 		date = "2026-10-09",
 		entries = {
 			"Minor code adjustments"
-		}
-	},
-	{
-		version = "v2.29",
-		date = "2026-10-03",
-		entries = {
-			"Changed: Maximum stack sizes now use thousands separators",
-			"Updated: Logo"
 		}
 	}
 	-- END GENERATED CHANGELOG
