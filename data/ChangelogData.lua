@@ -12,6 +12,14 @@ EXT.CHANGELOG = {
 		version = version,
 		date = buildDate ~= "" and buildDate or nil,
 		entries = {
+			"Changed: The Basic debug level now shows important messages, while Advanced also includes technical details",
+			"Updated: deDE, enUS, ruRU localizations"
+		}
+	},
+	{
+		version = "v2.39",
+		date = "2026-11-05",
+		entries = {
 			"Changed: Debug messages are now converted and formatted only when debug mode is enabled",
 			"Requires Arcane Wizard: Library revision 4 or later"
 		}
@@ -79,13 +87,6 @@ EXT.CHANGELOG = {
 		date = "2026-10-12",
 		entries = {
 			"Refactoring of the addon structure and source code"
-		}
-	},
-	{
-		version = "v2.30",
-		date = "2026-10-09",
-		entries = {
-			"Minor code adjustments"
 		}
 	}
 	-- END GENERATED CHANGELOG
