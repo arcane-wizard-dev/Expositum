@@ -66,7 +66,7 @@ function ExpositumFrame:ADDON_LOADED(_, addOnName)
 
 	isInitialized = true
 
-	Utils:PrintDebug(
+	Utils:PrintDebugAdvanced(
 		"InitializeDatabase: key=%s, createdProfile=%s, createdProfileKey=%s, cleanedOptions=%s, activeProfile=%s",
 		dbInit.characterGUID,
 		dbInit.createdProfile,
