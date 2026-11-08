@@ -1,3 +1,7 @@
+**v2.41 (2026-11-08)**
+- Changed: Item tooltips skip repeated data lookups once all enabled details are filled
+- Minor code adjustments
+
 **v2.40 (2026-11-06)**
 - Changed: The Basic debug level now shows important messages, while Advanced also includes technical details
 - Updated: deDE, enUS, ruRU localizations
