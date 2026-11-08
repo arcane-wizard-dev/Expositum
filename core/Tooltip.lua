@@ -192,10 +192,12 @@ function Tooltip:ProcessTooltip(tooltip, itemLink)
 	local needsItemLevel = settings["item-level"] and not lineKeys["item-level"]
 	local needsItemID = settings["item-id"] and not lineKeys["item-id"]
 	local needsMaxStackSize = settings["max-stack-size"] and not lineKeys["max-stack-size"]
+		and not (settings["hide-single-stack"] and lineState.maxStackSize == 1)
 
 	if not (needsExpansion or needsCategory or needsRarity or needsItemLevel or needsItemID or needsMaxStackSize) then return end
 
 	local _, _, itemQuality, itemLevel, _, itemType, itemSubType, maxStackSize, _, _, _, _, _, _, expansionID = C_Item.GetItemInfo(itemLink)
+	lineState.maxStackSize = maxStackSize
 
 	if needsExpansion then
 		local expansionName = EXT.EXPANSION_NAMES[expansionID]
