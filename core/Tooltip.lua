@@ -51,54 +51,41 @@ end
 local function GetTooltipLineState(tooltip, itemLink)
 	EnsureTooltipResetHook(tooltip)
 
-	local itemID = GetItemID(itemLink)
-
-	if not itemID then
-		return {lineKeys = {}}
-	end
-
 	local state = tooltipLineStates[tooltip]
-
-	if not state or state.itemID ~= itemID then
-		state = {
-			itemID = itemID,
-			lineKeys = {}
-		}
+	if not state or state.itemLink ~= itemLink then
+		state = {itemLink = itemLink, lineKeys = {}}
 		tooltipLineStates[tooltip] = state
 	end
 
 	return state
 end
 
-local function AddItemLine(tooltip, state, entry)
-	if state.lineKeys[entry.key] then return end
+local function AddItemLine(tooltip, state, key, value)
+	if EXT.Settings.tooltip["blank-line"] and not state.lineKeys["blank-line"] then
+		tooltip:AddLine(" ")
+		state.lineKeys["blank-line"] = true
+	end
 
+	local label = L["tooltip." .. key]
 	if EXT.Settings.tooltip["layout"] == "left" then
-		tooltip:AddLine(entry.label .. ": " .. entry.value, NORMAL_FONT_COLOR.r, NORMAL_FONT_COLOR.g, NORMAL_FONT_COLOR.b, true)
+		tooltip:AddLine(label .. ": " .. value, NORMAL_FONT_COLOR.r, NORMAL_FONT_COLOR.g, NORMAL_FONT_COLOR.b, true)
 	else
-		tooltip:AddDoubleLine(entry.label, entry.value)
+		tooltip:AddDoubleLine(label, value)
 	end
 
-	state.lineKeys[entry.key] = true
+	state.lineKeys[key] = true
 end
 
-local function AddBlankLine(tooltip, state)
-	if state.lineKeys["blank-line"] then return end
-
-	tooltip:AddLine(" ")
-	state.lineKeys["blank-line"] = true
+local function IsTooltipAvailable(tooltip)
+	return tooltip and not (tooltip.IsForbidden and tooltip:IsForbidden())
 end
 
-local function GetExpansionName(expansionID)
-	if expansionID and EXT.EXPANSION_NAMES[expansionID] then
-		return EXT.EXPANSION_NAMES[expansionID]
-	end
-
-	return nil
+local function WhiteText(value)
+	return "|cnWHITE_FONT_COLOR:" .. value .. "|r"
 end
 
 local function GetExpansionText(expansionID, expansionName)
-	local expansionText = "|cnWHITE_FONT_COLOR:" .. expansionName .. "|r"
+	local expansionText = WhiteText(expansionName)
 	local displayMode = EXT.Settings.tooltip["expansion-display"]
 	if displayMode == "name" then return expansionText end
 
@@ -141,7 +128,7 @@ local function GetRarityText(itemQuality)
 		return colorCode .. qualityName .. "|r"
 	end
 
-	return "|cnWHITE_FONT_COLOR:" .. qualityName .. "|r"
+	return WhiteText(qualityName)
 end
 
 ------------------------
@@ -151,7 +138,7 @@ end
 function Tooltip:Initialize()
 	if AWL.GAME_TYPE_CLASSIC or AWL.GAME_TYPE_TBC or AWL.GAME_TYPE_MISTS then
 		local function OnTooltipSetItem(tooltip)
-			if not tooltip or (tooltip.IsForbidden and tooltip:IsForbidden()) then return end
+			if not IsTooltipAvailable(tooltip) then return end
 
 			local _, link = tooltip:GetItem()
 
@@ -172,7 +159,7 @@ function Tooltip:Initialize()
 		end
 	elseif AWL.GAME_TYPE_RETAIL or AWL.GAME_TYPE_FOREVER then
 		TooltipDataProcessor.AddTooltipPostCall(Enum.TooltipDataType.Item, function(tooltip, data)
-			if not tooltip or (tooltip.IsForbidden and tooltip:IsForbidden()) or not data then return end
+			if not IsTooltipAvailable(tooltip) or not data then return end
 
 			local link = (data.hyperlink or data.link)
 
@@ -196,56 +183,54 @@ end
 function Tooltip:ProcessTooltip(tooltip, itemLink)
 	if not itemLink then return end
 
-	local _, _, itemQuality, itemLevel, _, itemType, itemSubType, maxStackSize, _, _, _, _, _, _, expansionID = C_Item.GetItemInfo(itemLink)
-	local itemID = GetItemID(itemLink)
-
-	local expansionName = GetExpansionName(expansionID)
-	local rarityText = GetRarityText(itemQuality)
-	local showExpansion = AWL.GAME_TYPE_RETAIL and EXT.Settings.tooltip["expansion"] and expansionName
-	local showCategory = EXT.Settings.tooltip["category"] and itemType ~= nil
-	local showRarity = EXT.Settings.tooltip["rarity"] and rarityText
-	local showItemLevel = EXT.Settings.tooltip["item-level"] and itemLevel ~= nil
-	local showItemID = EXT.Settings.tooltip["item-id"] and itemID ~= nil
-	local showMaxStackSize = EXT.Settings.tooltip["max-stack-size"] and type(maxStackSize) == "number" and maxStackSize >= 1
-		and (not EXT.Settings.tooltip["hide-single-stack"] or maxStackSize > 1)
-
-	if not (showExpansion or showCategory or showRarity or showItemLevel or showItemID or showMaxStackSize) then return end
-
 	local lineState = GetTooltipLineState(tooltip, itemLink)
+	local lineKeys = lineState.lineKeys
+	local settings = EXT.Settings.tooltip
+	local needsExpansion = AWL.GAME_TYPE_RETAIL and settings["expansion"] and not lineKeys["expansion"]
+	local needsCategory = settings["category"] and not lineKeys["category"]
+	local needsRarity = settings["rarity"] and not lineKeys["rarity"]
+	local needsItemLevel = settings["item-level"] and not lineKeys["item-level"]
+	local needsItemID = settings["item-id"] and not lineKeys["item-id"]
+	local needsMaxStackSize = settings["max-stack-size"] and not lineKeys["max-stack-size"]
 
-	if EXT.Settings.tooltip["blank-line"] then
-		AddBlankLine(tooltip, lineState)
+	if not (needsExpansion or needsCategory or needsRarity or needsItemLevel or needsItemID or needsMaxStackSize) then return end
+
+	local _, _, itemQuality, itemLevel, _, itemType, itemSubType, maxStackSize, _, _, _, _, _, _, expansionID = C_Item.GetItemInfo(itemLink)
+
+	if needsExpansion then
+		local expansionName = EXT.EXPANSION_NAMES[expansionID]
+		if expansionName then
+			AddItemLine(tooltip, lineState, "expansion", GetExpansionText(expansionID, expansionName))
+		end
 	end
 
-	if showExpansion then
-		AddItemLine(tooltip, lineState, {key = "expansion", label = L["tooltip.expansion"], value = GetExpansionText(expansionID, expansionName)})
+	if needsCategory and itemType ~= nil then
+		AddItemLine(tooltip, lineState, "category", WhiteText(GetCategoryText(itemType, itemSubType)))
 	end
 
-	if showCategory then
-		AddItemLine(
-			tooltip,
-			lineState,
-			{key = "category", label = L["tooltip.category"], value = "|cnWHITE_FONT_COLOR:" .. GetCategoryText(itemType, itemSubType) .. "|r"}
-		)
+	if needsRarity then
+		local rarityText = GetRarityText(itemQuality)
+		if rarityText then
+			AddItemLine(tooltip, lineState, "rarity", rarityText)
+		end
 	end
 
-	if showRarity then
-		AddItemLine(tooltip, lineState, {key = "rarity", label = L["tooltip.rarity"], value = rarityText})
+	if needsItemLevel and itemLevel ~= nil then
+		AddItemLine(tooltip, lineState, "item-level", WhiteText(itemLevel))
 	end
 
-	if showItemLevel then
-		AddItemLine(tooltip, lineState, {key = "item-level", label = L["tooltip.item-level"], value = "|cnWHITE_FONT_COLOR:" .. itemLevel .. "|r"})
+	if needsItemID then
+		local itemID = GetItemID(itemLink)
+		if itemID ~= nil then
+			AddItemLine(tooltip, lineState, "item-id", WhiteText(itemID))
+		end
 	end
 
-	if showItemID then
-		AddItemLine(tooltip, lineState, {key = "item-id", label = L["tooltip.item-id"], value = "|cnWHITE_FONT_COLOR:" .. itemID .. "|r"})
-	end
-
-	if showMaxStackSize then
-		AddItemLine(
-			tooltip,
-			lineState,
-			{key = "max-stack-size", label = L["tooltip.max-stack-size"], value = "|cnWHITE_FONT_COLOR:" .. BreakUpLargeNumbers(maxStackSize) .. "|r"}
-		)
+	if needsMaxStackSize
+		and type(maxStackSize) == "number"
+		and maxStackSize >= 1
+		and (not settings["hide-single-stack"] or maxStackSize > 1)
+	then
+		AddItemLine(tooltip, lineState, "max-stack-size", WhiteText(BreakUpLargeNumbers(maxStackSize)))
 	end
 end

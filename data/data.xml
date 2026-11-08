@@ -3,7 +3,7 @@
 	<Script file="NamespaceData.lua" />
 	<Script file="OptionsData.lua" />
 
-	<Script file="CommonData.lua" />
+	<Script file="ExpansionData.lua" />
 	<Script file="ui/TooltipUIConfig.lua" />
 	<Script file="ChangelogData.lua" />
 </Ui>

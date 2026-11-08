@@ -4,7 +4,6 @@ if EXT.State and EXT.State.libraryIncompatible then return end
 
 EXT.Settings = EXT.Settings or {}
 EXT.Data = EXT.Data or {}
-EXT.State = EXT.State or {}
 EXT.UIConfig = EXT.UIConfig or {}
 EXT.Modules = EXT.Modules or {}
 
