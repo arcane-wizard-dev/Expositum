@@ -15,7 +15,7 @@ EXT.OPTIONS_DEFAULTS = {
 	},
 	["tooltip"] = {
 		["layout"] = "columns",
-		["blank-line"] = true,
+		["blank-line-position"] = "top",
 		["expansion"] = true,
 		["expansion-display"] = "both",
 		["category"] = true,

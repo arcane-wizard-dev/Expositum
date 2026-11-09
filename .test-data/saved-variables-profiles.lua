@@ -14,7 +14,7 @@ Expositum_Options_v4 = {
 			},
 		},
 		["tooltip"] = {
-			["blank-line"] = false,
+			["blank-line-position"] = "none",
 			["category"] = true,
 			["expansion"] = true,
 			["expansion-display"] = "both",
@@ -52,7 +52,7 @@ Expositum_Options_v4 = {
 				},
 			},
 			["tooltip"] = {
-				["blank-line"] = false,
+				["blank-line-position"] = "bottom",
 				["category"] = true,
 				["expansion"] = true,
 				["expansion-display"] = "both",
@@ -76,7 +76,7 @@ Expositum_Options_v4 = {
 				},
 			},
 			["tooltip"] = {
-				["blank-line"] = false,
+				["blank-line-position"] = "both",
 				["category"] = true,
 				["expansion"] = true,
 				["expansion-display"] = "both",

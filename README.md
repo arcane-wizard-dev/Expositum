@@ -28,6 +28,7 @@ Individual features and display options can be configured in the addon settings.
 ### Display and Settings
 
 * Offers two-column or left-aligned layouts for the additional tooltip information.
+* Lets you add blank lines before or after the additional item information, or on both sides.
 * Offers badge-only, name-only, or combined expansion displays, and an option to hide a maximum stack size of 1.
 * Organizes tooltip options into collapsible "Display" and "Item Information" groups.
 * Disables the expansion display selector and stack size filter when their respective main options are turned off.

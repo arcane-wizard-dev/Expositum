@@ -14,6 +14,12 @@ EXT.UIConfig.Tooltip = {
 		{value = "columns", label = EXT.Localization["options.tooltip.layout.columns"]},
 		{value = "left", label = EXT.Localization["options.tooltip.layout.left"]}
 	},
+	blankLinePositionOptions = {
+		{value = "none", label = EXT.Localization["options.tooltip.blank-line-position.none"]},
+		{value = "top", label = EXT.Localization["options.tooltip.blank-line-position.top"]},
+		{value = "bottom", label = EXT.Localization["options.tooltip.blank-line-position.bottom"]},
+		{value = "both", label = EXT.Localization["options.tooltip.blank-line-position.both"]}
+	},
 	expansionBadges = {
 		[0]  = {abbreviation = "CL",    color = "D8B45A", texture = expansionBadgePath .. "classic.tga"},
 		[1]  = {abbreviation = "TBC",   color = "9BBF4B", texture = expansionBadgePath .. "burning-crusade.tga"},

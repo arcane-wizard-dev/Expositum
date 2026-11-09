@@ -44,8 +44,12 @@ L["options.tooltip.max-stack-size.name"] = "Maximale Stapelgröße anzeigen"
 L["options.tooltip.max-stack-size.tooltip"] = "Zeigt die maximal mögliche Anzahl pro Stapel an, nicht die aktuell vorhandene Menge."
 L["options.tooltip.hide-single-stack.name"] = "Stapelgröße 1 ausblenden"
 L["options.tooltip.hide-single-stack.tooltip"] = "Zeigt die maximale Stapelgröße nur bei stapelbaren Gegenständen an, sodass bei nicht stapelbaren Gegenständen keine 1 erscheint."
-L["options.tooltip.blank-line.name"] = "Leerzeile einfügen"
-L["options.tooltip.blank-line.tooltip"] = "Fügt im Tooltip vor den zusätzlichen Gegenstandsinformationen eine Leerzeile ein."
+L["options.tooltip.blank-line-position.name"] = "Leerzeilen"
+L["options.tooltip.blank-line-position.tooltip"] = "Wähle, wo Leerzeilen im Tooltip erscheinen. „Oben“ und „Unten“ beziehen sich auf den Block mit den zusätzlichen Gegenstandsinformationen."
+L["options.tooltip.blank-line-position.none"] = "Keine"
+L["options.tooltip.blank-line-position.top"] = "Oben"
+L["options.tooltip.blank-line-position.bottom"] = "Unten"
+L["options.tooltip.blank-line-position.both"] = "Oben und unten"
 
 -- General
 

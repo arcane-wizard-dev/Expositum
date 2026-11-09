@@ -44,8 +44,12 @@ L["options.tooltip.max-stack-size.name"] = "Показывать максима�
 L["options.tooltip.max-stack-size.tooltip"] = "Отображает максимальное количество предметов в одной стопке, а не имеющееся количество."
 L["options.tooltip.hide-single-stack.name"] = "Скрывать размер стопки 1"
 L["options.tooltip.hide-single-stack.tooltip"] = "Показывает максимальный размер стопки только для складываемых предметов, поэтому для остальных предметов 1 не отображается."
-L["options.tooltip.blank-line.name"] = "Вставить пустую строку"
-L["options.tooltip.blank-line.tooltip"] = "Вставляет пустую строку в подсказку перед дополнительной информацией о предмете."
+L["options.tooltip.blank-line-position.name"] = "Пустые строки"
+L["options.tooltip.blank-line-position.tooltip"] = "Выберите, где вставлять пустые строки относительно дополнительной информации о предмете."
+L["options.tooltip.blank-line-position.none"] = "Без пустых строк"
+L["options.tooltip.blank-line-position.top"] = "Перед информацией"
+L["options.tooltip.blank-line-position.bottom"] = "После информации"
+L["options.tooltip.blank-line-position.both"] = "Перед информацией и после неё"
 
 -- General
 

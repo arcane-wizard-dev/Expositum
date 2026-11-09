@@ -91,14 +91,15 @@ function Options:Initialize()
 		shownPredicate	= isDisplayExpanded
 	})
 
-	-- Blank Line
-	AWL.Settings:AddCheckbox(category, {
+	-- Blank Line Position
+	AWL.Settings:AddDropdown(category, {
 		variableTable	= EXT.Settings.tooltip,
-		settingKey		= addonName .. "_blank-line",
-		variableName	= "blank-line",
-		name			= L["options.tooltip.blank-line.name"],
-		tooltip			= L["options.tooltip.blank-line.tooltip"],
-		default			= EXT.OPTIONS_DEFAULTS["tooltip"]["blank-line"],
+		settingKey		= addonName .. "_blank-line-position",
+		variableName	= "blank-line-position",
+		name			= L["options.tooltip.blank-line-position.name"],
+		tooltip			= L["options.tooltip.blank-line-position.tooltip"],
+		default			= EXT.OPTIONS_DEFAULTS["tooltip"]["blank-line-position"],
+		options			= TooltipConfig.blankLinePositionOptions,
 		shownPredicate	= isDisplayExpanded
 	})
 

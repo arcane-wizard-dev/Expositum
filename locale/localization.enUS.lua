@@ -52,8 +52,12 @@ L["options.tooltip.max-stack-size.name"] = "Show Maximum Stack Size"
 L["options.tooltip.max-stack-size.tooltip"] = "Displays the maximum number of items per stack, not the quantity currently owned."
 L["options.tooltip.hide-single-stack.name"] = "Hide Stack Size 1"
 L["options.tooltip.hide-single-stack.tooltip"] = "Only displays the maximum stack size for stackable items, so non-stackable items do not show 1."
-L["options.tooltip.blank-line.name"] = "Insert Blank Line"
-L["options.tooltip.blank-line.tooltip"] = "Inserts a blank line before the additional item information in the tooltip."
+L["options.tooltip.blank-line-position.name"] = "Blank Lines"
+L["options.tooltip.blank-line-position.tooltip"] = "Choose where to insert blank lines around the additional item information."
+L["options.tooltip.blank-line-position.none"] = "None"
+L["options.tooltip.blank-line-position.top"] = "Before"
+L["options.tooltip.blank-line-position.bottom"] = "After"
+L["options.tooltip.blank-line-position.both"] = "Before and After"
 
 -- General
 

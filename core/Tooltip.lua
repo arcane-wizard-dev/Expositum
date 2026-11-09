@@ -61,9 +61,9 @@ local function GetTooltipLineState(tooltip, itemLink)
 end
 
 local function AddItemLine(tooltip, state, key, value)
-	if EXT.Settings.tooltip["blank-line"] and not state.lineKeys["blank-line"] then
+	local blankLinePosition = EXT.Settings.tooltip["blank-line-position"]
+	if not state.hasItemLines and (blankLinePosition == "top" or blankLinePosition == "both") then
 		tooltip:AddLine(" ")
-		state.lineKeys["blank-line"] = true
 	end
 
 	local label = L["tooltip." .. key]
@@ -74,6 +74,7 @@ local function AddItemLine(tooltip, state, key, value)
 	end
 
 	state.lineKeys[key] = true
+	state.hasItemLines = true
 end
 
 local function IsTooltipAvailable(tooltip)
@@ -194,9 +195,10 @@ function Tooltip:ProcessTooltip(tooltip, itemLink)
 	local needsMaxStackSize = settings["max-stack-size"] and not lineKeys["max-stack-size"]
 		and not (settings["hide-single-stack"] and lineState.maxStackSize == 1)
 
-	if not (needsExpansion or needsCategory or needsRarity or needsItemLevel or needsItemID or needsMaxStackSize) then return end
+	local needsItemInfo = needsExpansion or needsCategory or needsRarity or needsItemLevel or needsMaxStackSize
+	if not (needsItemInfo or needsItemID) then return end
 
-	local _, _, itemQuality, itemLevel, _, itemType, itemSubType, maxStackSize, _, _, _, _, _, _, expansionID = C_Item.GetItemInfo(itemLink)
+	local itemName, _, itemQuality, itemLevel, _, itemType, itemSubType, maxStackSize, _, _, _, _, _, _, expansionID = C_Item.GetItemInfo(itemLink)
 	lineState.maxStackSize = maxStackSize
 
 	if needsExpansion then
@@ -234,5 +236,16 @@ function Tooltip:ProcessTooltip(tooltip, itemLink)
 		and (not settings["hide-single-stack"] or maxStackSize > 1)
 	then
 		AddItemLine(tooltip, lineState, "max-stack-size", WhiteText(BreakUpLargeNumbers(maxStackSize)))
+	end
+
+	local blankLinePosition = settings["blank-line-position"]
+	-- Bei fehlenden Itemdaten kann der nächste Aufruf noch Zusatzzeilen anhängen.
+	if lineState.hasItemLines
+		and not lineState.hasTrailingBlankLine
+		and (blankLinePosition == "bottom" or blankLinePosition == "both")
+		and (itemName ~= nil or not needsItemInfo)
+	then
+		tooltip:AddLine(" ")
+		lineState.hasTrailingBlankLine = true
 	end
 end
