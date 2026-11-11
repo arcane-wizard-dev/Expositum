@@ -239,7 +239,6 @@ function Tooltip:ProcessTooltip(tooltip, itemLink)
 	end
 
 	local blankLinePosition = settings["blank-line-position"]
-	-- Bei fehlenden Itemdaten kann der nächste Aufruf noch Zusatzzeilen anhängen.
 	if lineState.hasItemLines
 		and not lineState.hasTrailingBlankLine
 		and (blankLinePosition == "bottom" or blankLinePosition == "both")
