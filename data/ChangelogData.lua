@@ -12,6 +12,13 @@ EXT.CHANGELOG = {
 		version = version,
 		date = buildDate ~= "" and buildDate or nil,
 		entries = {
+			"Minor code adjustments"
+		}
+	},
+	{
+		version = "v2.42",
+		date = "2026-11-10",
+		entries = {
 			"Changed: The Blank Lines option now lets you choose a blank line before or after the additional item information, or on both sides",
 			"Changed: Reworked the options menu to prevent errors in Blizzard's settings and added a button to restore default values",
 			"Removed: Addon options from Blizzard's settings search",
@@ -84,13 +91,6 @@ EXT.CHANGELOG = {
 			"Updated: deDE, enUS, ruRU localizations",
 			"Updated: Addon description",
 			"Minor code adjustments"
-		}
-	},
-	{
-		version = "v2.33",
-		date = "2026-10-16",
-		entries = {
-			"Adapted to the latest version of Arcane Wizard: Library to ensure full compatibility"
 		}
 	}
 	-- END GENERATED CHANGELOG
