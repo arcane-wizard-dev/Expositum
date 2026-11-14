@@ -1,3 +1,6 @@
+**v2.43 (2026-11-14)**
+- Minor code adjustments
+
 **v2.42 (2026-11-10)**
 - Changed: The Blank Lines option now lets you choose a blank line before or after the additional item information, or on both sides
 - Changed: Reworked the options menu to prevent errors in Blizzard's settings and added a button to restore default values
