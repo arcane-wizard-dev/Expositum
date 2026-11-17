@@ -12,6 +12,14 @@ EXT.CHANGELOG = {
 		version = version,
 		date = buildDate ~= "" and buildDate or nil,
 		entries = {
+			"Added: A help command lists available slash commands, and unknown commands show a hint in chat",
+			"Requires Arcane Wizard: Library revision 6 or later"
+		}
+	},
+	{
+		version = "v2.43",
+		date = "2026-11-14",
+		entries = {
 			"Minor code adjustments"
 		}
 	},
@@ -81,16 +89,6 @@ EXT.CHANGELOG = {
 		entries = {
 			"Added: TOC version for patch 12.1.7 [retail]",
 			"Removed: TOC version for patch 12.1.0 [retail]"
-		}
-	},
-	{
-		version = "v2.34",
-		date = "2026-10-28",
-		entries = {
-			"Added: Startup check for the minimum required Library revision",
-			"Updated: deDE, enUS, ruRU localizations",
-			"Updated: Addon description",
-			"Minor code adjustments"
 		}
 	}
 	-- END GENERATED CHANGELOG
