@@ -47,7 +47,7 @@ Individual features and display options can be configured in the addon settings.
 To manage the addon, type the following commands in chat and press Enter:
 
 * Type `/ext` or `/expositum` to access the addon options menu.
-* Type `/ext help` or `/expositum help` to see answers to common questions about item tooltips and a list of chat commands. You can also select **Help** in the **More Information** row under **About** in the addon settings.
+* Type `/ext help` or `/expositum help` to see answers to common questions about item tooltips and a list of chat commands. You can also select Help in the Using the Addon row under About in the addon settings.
 * Type `/ext changelog` or `/expositum changelog` to open the changelog.
 
 ## Bugs & Feedback
