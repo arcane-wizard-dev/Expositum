@@ -47,7 +47,7 @@ Individual features and display options can be configured in the addon settings.
 To manage the addon, type the following commands in chat and press Enter:
 
 * Type `/ext` or `/expositum` to access the addon options menu.
-* Type either command above followed by `help` to see the available chat commands and answers to frequently asked questions.
+* Type `/ext help` or `/expositum help` to see the available chat commands and answers to frequently asked questions.
 * Type `/ext changelog` or `/expositum changelog` to open the changelog.
 
 ## Bugs & Feedback
