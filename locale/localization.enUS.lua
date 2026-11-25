@@ -14,6 +14,13 @@ EXT.Localization = setmetatable({}, {
 
 local L = EXT.Localization
 
+-- Help
+
+L["help.faq.stack-size.question"] = "What does \"Max. Stack Size\" mean in a tooltip?"
+L["help.faq.stack-size.answer"] = "It is the number of copies of an item that fit in one stack. \"Hide Stack Size 1\" hides this line for items that do not stack."
+L["help.faq.expansion.question"] = "Can the tooltip show an expansion's full name?"
+L["help.faq.expansion.answer"] = "Yes. With \"Show Expansion\" enabled, \"Expansion Display\" can show the badge, the full name, or both."
+
 -- Options
 
 L["options.general"] = "General Options"

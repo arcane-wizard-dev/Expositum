@@ -6,6 +6,13 @@ if GetLocale() ~= "deDE" then return end
 
 local L = EXT.Localization
 
+-- Help
+
+L["help.faq.stack-size.question"] = "Was bedeutet „Max. Stapelgröße“ im Tooltip?"
+L["help.faq.stack-size.answer"] = "Die Zahl gibt an, wie viele Exemplare des Gegenstands in einen Stapel passen. Mit „Stapelgröße 1 ausblenden“ entfällt diese Zeile bei Gegenständen, die sich nicht stapeln lassen."
+L["help.faq.expansion.question"] = "Kann die Erweiterung als ausgeschriebener Name erscheinen?"
+L["help.faq.expansion.answer"] = "Ja. Wenn „Erweiterung anzeigen“ eingeschaltet ist, lässt sich unter „Erweiterungsanzeige“ zwischen Kürzel, ausgeschriebenem Namen und beidem wählen."
+
 -- Options
 
 L["options.general"] = "Allgemeine Einstellungen"
